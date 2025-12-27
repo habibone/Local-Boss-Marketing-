@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { Button, Icons, Card, SectionHeading } from '../components/UI';
-import { useModals } from '../components/Layout';
+import { Button, Icons, Card, SectionHeading } from '../components/UI.tsx';
+import { useModals } from '../components/Layout.tsx';
 import { NavLink } from 'react-router-dom';
 
 const HomePage: React.FC = () => {

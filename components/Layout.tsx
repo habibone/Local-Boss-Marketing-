@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Button, Icons } from './UI';
-import { ModalContextType } from '../types';
+import { Button, Icons } from './UI.tsx';
+import { ModalContextType } from '../types.ts';
 
 // --- Context Setup ---
 export const ModalContext = createContext<ModalContextType | undefined>(undefined);

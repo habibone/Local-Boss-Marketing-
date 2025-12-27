@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import HomePage from './pages/Home';
+import { Layout } from './components/Layout.tsx';
+import HomePage from './pages/Home.tsx';
 import { 
   ServicesPage, 
   IndustriesPage, 
@@ -17,10 +17,9 @@ import {
   ReputationPage,
   TermsPage,
   PrivacyPage
-} from './pages/ContentPages';
+} from './pages/ContentPages.tsx';
 
 // ScrollToTop component to ensure pages start at the top on navigation
-// Fix: Use useLocation to correctly detect route changes for scrolling to top
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   React.useEffect(() => {

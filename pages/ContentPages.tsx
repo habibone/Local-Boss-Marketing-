@@ -1,37 +1,85 @@
 import React, { useState } from 'react';
-import { SectionHeading, Card, Button, Icons } from '../components/UI';
-import { useModals } from '../components/Layout';
+import { SectionHeading, Card, Button, Icons } from '../components/UI.tsx';
+import { useModals } from '../components/Layout.tsx';
 import { NavLink } from 'react-router-dom';
 
 // --- Privacy Policy Page ---
 export const PrivacyPage: React.FC = () => {
-  const lastUpdated = new Date().toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
-
   return (
-    <div className="pt-32 pb-20 bg-gray-50">
+    <div className="pt-32 pb-20 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
-          <h1 className="text-4xl font-extrabold text-brand-navy mb-2">Privacy Policy</h1>
-          <p className="text-gray-500 mb-8 font-medium italic">Last Updated: {lastUpdated}</p>
+        <h1 className="text-3xl font-bold text-brand-navy mb-8 border-b pb-4">Privacy Policy</h1>
+        <div className="prose prose-blue max-w-none text-gray-700">
+          <p className="mb-4">Effective Date: {new Date().toLocaleDateString()}</p>
+          <p className="mb-6">
+            Local Boss Marketing LLC (“we,” “us,” or “our”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services, including our website <a href="https://www.localbossmarketing.com" className="text-brand-red hover:underline">www.localbossmarketing.com</a> (“Service”). This policy is designed to inform users of our Service about how we handle personal information and to ensure compliance with privacy laws and regulations.
+          </p>
           
-          <div className="prose prose-slate max-w-none text-gray-700 space-y-8">
-            <p className="leading-relaxed">
-              Local Boss Marketing LLC (“we,” “us,” or “our”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.
-            </p>
+          <h2 className="text-xl font-bold mt-8 mb-4">1. Information We Collect</h2>
+          <p className="mb-4">
+            We may collect personal information that you voluntarily provide to us when you use our Service, including but not limited to:
+          </p>
+          <ul className="list-disc pl-6 mb-6 space-y-2">
+            <li><strong>Contact Information:</strong> Such as your name, email address, and phone number.</li>
+            <li><strong>CRM Data:</strong> Information related to your Customer Relationship Management (CRM) system, including contact lists you choose to integrate with our Service.</li>
+            <li><strong>Usage Data:</strong> Information on how you use our Service, including features accessed, pages visited, and message logs.</li>
+          </ul>
 
-            <section className="bg-brand-light p-8 rounded-2xl border border-gray-100">
-              <h2 className="text-2xl font-bold text-brand-navy mb-4">Contact Information</h2>
-              <address className="not-italic text-gray-800">
-                <p className="font-bold">Local Boss Marketing LLC</p>
-                <p>312 W 2nd St #5196</p>
-                <p>Casper, 82601 Wyoming, United States</p>
-              </address>
-            </section>
-          </div>
+          <h2 className="text-xl font-bold mt-8 mb-4">2. How We Use Your Information</h2>
+          <p className="mb-4">
+            We use the information we collect about you to:
+          </p>
+          <ul className="list-disc pl-6 mb-6 space-y-2">
+            <li>Provide, operate, and maintain our Service.</li>
+            <li>Improve, personalize, and expand our Service.</li>
+            <li>Understand and analyze how you use our Service.</li>
+            <li>Develop new products, services, features, and functionality.</li>
+            <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the Service, and for marketing and promotional purposes.</li>
+            <li>Send you text messages, notifications, and automated responses for missed calls.</li>
+            <li>Find and prevent fraud and other unauthorized activities.</li>
+            <li>Manage your subscriptions and deliver relevant marketing communications, if you have opted in.</li>
+          </ul>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">3. Data Security</h2>
+          <p className="mb-6">
+            We implement a variety of security measures to protect your personal information from unauthorized access, use, or disclosure. These measures include encryption, access controls, and secure transmission technologies. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee the absolute security of your information.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">4. Your Data Protection Rights</h2>
+          <p className="mb-4">
+            Depending on your location and applicable privacy laws, you may have the following data protection rights:
+          </p>
+          <ul className="list-disc pl-6 mb-6 space-y-2">
+            <li>The right to access, update, or delete the information we have on you.</li>
+            <li>The right to correct any inaccuracies in your information (rectification).</li>
+            <li>The right to object to the processing of your data.</li>
+            <li>The right to restrict the processing of your data.</li>
+            <li>The right to receive a copy of the data we hold in a portable format (data portability).</li>
+            <li>The right to withdraw consent to the processing of your data at any time.</li>
+          </ul>
+          <p className="mb-6">If you wish to exercise any of these rights, please contact us at <a href="mailto:support@localbossmarketing.com" className="text-brand-red hover:underline">support@localbossmarketing.com</a>.</p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">5. Cookies</h2>
+          <p className="mb-6">
+            Our website uses cookies to enhance user experience, analyze site usage, and offer personalized content and ads. You can adjust your cookie preferences in your browser settings; however, disabling cookies may impact your ability to fully utilize the Service.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">6. Changes to This Privacy Policy</h2>
+          <p className="mb-6">
+            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the “Effective Date” above. You are advised to review this Privacy Policy periodically for any changes.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">7. Contact Us</h2>
+          <p className="mb-4">
+            If you have any questions or concerns regarding this Privacy Policy, please contact us at:
+          </p>
+          <address className="not-italic bg-gray-50 p-6 rounded-lg border border-gray-100">
+            <p className="font-bold text-brand-navy">Local Boss Marketing LLC</p>
+            <p>312 W 2nd St #5196</p>
+            <p>Casper, 82601 Wyoming, United States</p>
+            <p className="mt-2"><strong>Phone:</strong> +1 (607) 235-1747</p>
+            <p><strong>Email:</strong> <a href="mailto:support@localbossmarketing.com" className="text-brand-red hover:underline">support@localbossmarketing.com</a></p>
+          </address>
         </div>
       </div>
     </div>
@@ -40,24 +88,85 @@ export const PrivacyPage: React.FC = () => {
 
 // --- Terms & Conditions Page ---
 export const TermsPage: React.FC = () => {
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
-
   return (
-    <div className="pt-32 pb-20 bg-gray-50">
+    <div className="pt-32 pb-20 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
-          <h1 className="text-4xl font-extrabold text-brand-navy mb-2">Terms & Conditions</h1>
-          <p className="text-gray-500 mb-8 font-medium italic">Last Updated: {currentDate}</p>
-          
-          <div className="prose prose-slate max-w-none text-gray-700 space-y-8">
-            <p className="leading-relaxed">
-              Welcome to Local Boss Marketing LLC. These Terms & Conditions govern your access to and use of our website.
-            </p>
-          </div>
+        <h1 className="text-3xl font-bold text-brand-navy mb-8 border-b pb-4">Terms & Conditions</h1>
+        <div className="prose prose-blue max-w-none text-gray-700">
+          <p className="mb-4 text-sm text-gray-500 italic font-medium">Effective Date: {new Date().toLocaleDateString()}</p>
+          <p className="mb-6">
+            Welcome to Local Boss Marketing LLC. These Terms & Conditions (“Terms”) govern your access to and use of our website <a href="https://www.localbossmarketing.com" className="text-brand-red hover:underline">www.localbossmarketing.com</a> (“Site”) and the services we provide, including our software and related tools that assist in Website and Sales Funnel creation, Reputation Management, Automatic Text Replies for Missed Calls, Smart Website Chat Tool, Text Messaging with Customers, and Social Media Marketing (“Service”). By accessing or using our Site or Service, you agree to comply with and be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, please do not use our Site or Service.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">1. Acceptable Use Policy</h2>
+          <p className="mb-4">
+            You agree to use our Site and Service only for lawful purposes and in compliance with all applicable local, state, national, and international laws and regulations regarding the transmission of electronic communications. Specifically, you agree not to:
+          </p>
+          <ul className="list-disc pl-6 mb-6 space-y-3">
+            <li><strong>Send Unsolicited Messages:</strong> Do not send messages to individuals who have not explicitly opted in to receive messages from you. Consent is required before any messages can be sent.</li>
+            <li><strong>Use Purchased Lists:</strong> Do not send messages to contacts obtained from purchased, rented, or third-party lists for unsolicited or cold messaging purposes.</li>
+            <li><strong>Engage in Spamming:</strong> Do not send unwanted or repeated messages to recipients. Ensure your communications are targeted, relevant, and welcomed by the recipients.</li>
+            <li><strong>Promote Prohibited Substances:</strong> Do not send messages that promote the sale or use of illegal or prohibited substances.</li>
+            <li><strong>Message Minors:</strong> Do not send messages to individuals under the age of consent in their respective jurisdiction.</li>
+          </ul>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">2. User Responsibilities</h2>
+          <ul className="list-disc pl-6 mb-6 space-y-3">
+            <li><strong>Automated Opt-Out:</strong> Ensure that your messaging campaigns include a clear, straightforward automated opt-out mechanism for recipients to easily unsubscribe from future communications.</li>
+            <li><strong>Compliance with Regulations:</strong> You must comply with all relevant regulations and guidelines related to electronic communications, including SMS, in your country. It is your responsibility to stay informed and adhere to these laws.</li>
+            <li><strong>Ethical Conduct:</strong> You agree to conduct your campaigns ethically and responsibly, respecting the privacy and preferences of your recipients.</li>
+            <li><strong>Indemnification:</strong> You agree to indemnify, defend, and hold harmless Local Boss Marketing LLC, its affiliates, officers, agents, employees, and partners from any claims, liabilities, damages, and expenses (including, without limitation, reasonable attorneys’ fees) arising from your use of the Service.</li>
+          </ul>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">3. Services and Payments</h2>
+          <ul className="list-disc pl-6 mb-6 space-y-3">
+            <li><strong>Services Provided:</strong> Local Boss Marketing LLC offers various marketing and lead generation services, including but not limited to Website and Sales Funnel creation, Reputation Management, Automatic Text Replies for Missed Calls, Smart Website Chat Tool, Text Messaging with Customers, and Social Media Marketing.</li>
+            <li><strong>Subscription and Fees:</strong> By subscribing to our Service, you agree to pay all applicable fees based on the selected service plan. Payment is required in advance and may be subject to automatic renewal based on your chosen subscription plan.</li>
+            <li><strong>Non-Refundable Payments:</strong> All payments made to Local Boss Marketing LLC are non-refundable unless otherwise agreed in writing. You are responsible for the payment of all fees due to us under these Terms, and any late payment may result in the suspension or termination of your access to the Service.</li>
+            <li><strong>Payment Methods:</strong> We accept major credit cards and other payment methods specified on the Site. You agree to provide accurate and complete payment information and authorize us to charge your payment method for any fees incurred.</li>
+            <li><strong>Service Modifications:</strong> We reserve the right to modify our Service offerings, including pricing and payment terms. Any changes to your plan will be communicated to you in advance, and you will have the option to accept the changes or cancel your subscription.</li>
+            <li><strong>Failure to Pay:</strong> If you fail to make a payment, we may suspend or terminate your access to the Service without notice. You agree to pay any reasonable collection costs, including attorney fees, incurred by Local Boss Marketing LLC to collect unpaid amounts.</li>
+          </ul>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">4. Delivery of Communications</h2>
+          <p className="mb-4">
+            Please be aware that the delivery of messages, including SMS and email, is subject to the complexities and variabilities of networks and technologies across different carriers and regions. Despite our efforts to ensure reliable and timely delivery, issues such as network disruptions, compatibility differences among carriers, or technical malfunctions can occasionally prevent successful message transmission.
+          </p>
+          <p className="mb-6">
+            By using our Service, you acknowledge these limitations and agree that we are not liable for any delays or failures in the delivery of messages that arise from factors beyond our control.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">5. Limitation of Liability</h2>
+          <p className="mb-6">
+            To the maximum extent permitted by law, Local Boss Marketing LLC shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from your use of our Site or Service, even if we have been advised of the possibility of such damages. Your use of our Site and Service is at your own risk.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">6. Termination</h2>
+          <p className="mb-6">
+            We reserve the right to terminate or suspend your access to our Site or Service immediately, without prior notice or liability, for any reason whatsoever, including, without limitation, if you breach these Terms. Upon termination, your right to use the Service will cease immediately.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">7. Changes to This Agreement</h2>
+          <p className="mb-6">
+            We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days’ notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">8. Governing Law</h2>
+          <p className="mb-6">
+            These Terms and your use of the Site and Service shall be governed by and construed in accordance with the laws of the state of Wyoming, without regard to its conflict of law principles. Any legal action or proceeding related to your access to or use of the Site or Service must be brought in a court located in Wyoming, and you consent to the jurisdiction of such courts.
+          </p>
+
+          <h2 className="text-xl font-bold mt-8 mb-4">9. Contact Information</h2>
+          <p className="mb-4">
+            If you have any questions or concerns regarding these Terms & Conditions, please contact us at:
+          </p>
+          <address className="not-italic bg-gray-50 p-6 rounded-lg border border-gray-100 mb-8">
+            <p className="font-bold text-brand-navy">Local Boss Marketing LLC</p>
+            <p>312 W 2nd St #5196</p>
+            <p>Casper, 82601 Wyoming, United States</p>
+            <p className="mt-2"><strong>Phone:</strong> +1 (607) 235-1747</p>
+            <p><strong>Email:</strong> <a href="mailto:support@localbossmarketing.com" className="text-brand-red hover:underline">support@localbossmarketing.com</a></p>
+          </address>
         </div>
       </div>
     </div>
@@ -110,7 +219,7 @@ export const GMBPage: React.FC = () => {
                 <Button size="lg" onClick={openBookDemo} className="bg-brand-red">
                   Check My Ranking Today
                 </Button>
-                <a href="tel:+16072351747">
+                <a href="tel:+16072351747" className="group">
                   <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy">
                     Talk to a Maps Expert
                   </Button>
@@ -667,7 +776,7 @@ export const ReputationPage: React.FC = () => {
                     <div className="absolute inset-0 bg-brand-red/20 blur-[100px] rounded-full"></div>
                     <Card className="relative p-10 bg-white border-0 shadow-2xl rounded-[3rem]">
                        <div className="flex text-brand-gold gap-2 mb-6">
-                          {[...Array(5)].map((_, i) => <Icons.Star key={i} size={28} fill="currentColor" />)}
+                          {[...Array(5)].map((芽, i) => <Icons.Star key={i} size={28} fill="currentColor" />)}
                        </div>
                        <p className="text-gray-700 text-2xl font-serif italic mb-10 leading-relaxed">
                          "The automated reviews changed our business. We went from 20 reviews to 180 in just 4 months. Now, when we quote high-ticket jobs, the clients already trust us because they read our reviews."
@@ -1412,7 +1521,7 @@ export const BlogPage: React.FC = () => {
                 <div className="h-48 bg-gray-300 w-full"></div>
                 <div className="p-6">
                    <h3 className="text-xl font-bold text-brand-navy mb-3">{post.title}</h3>
-                   <a href="#" className="text-brand-navy font-bold text-sm underline">Read More</a>
+                   <NavLink to="/blog" className="text-brand-navy font-bold text-sm underline">Read More</NavLink>
                 </div>
              </Card>
            ))}
