@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button, Icons, Card, SectionHeading } from '../components/UI';
 import { useModals } from '../components/Layout';
@@ -300,11 +301,11 @@ const HomePage: React.FC = () => {
                {[
                  { quote: "Our phone is finally ringing. The missed-call text back feature alone paid for the service in the first week.", author: "Mike T.", company: "Titan Roofing" },
                  { quote: "I used to waste so much money on Angi leads. Now I own my own traffic and the leads are exclusive to me.", author: "Sarah L.", company: "Modern Kitchens" },
-                 { quote: "The team at Local Boss actually understands contractors. No fluff, just booked jobs.", author: "David R.", company: "Rapid HVAC" }
+                 { quote: "The team at Local Boss Marketing actually understands contractors. No fluff, just booked jobs.", author: "David R.", company: "Rapid HVAC" }
                ].map((test, i) => (
                  <Card key={i} className="p-8 border-0">
                     <div className="flex text-brand-gold mb-4">
-                       {[...Array(5)].map((_, j) => <Icons.Star key={j} size={16} fill="currentColor" />)}
+                       {[...Array(5)].map((芽, j) => <Icons.Star key={j} size={16} fill="currentColor" />)}
                     </div>
                     <p className="text-gray-600 mb-6 italic">"{test.quote}"</p>
                     <div>
@@ -320,7 +321,7 @@ const HomePage: React.FC = () => {
       {/* --- FINAL CTA --- */}
       <section className="py-24 bg-brand-navy text-white text-center">
          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-6">Ready to Become the Local Boss?</h2>
+            <h2 className="text-4xl font-bold mb-6">Ready to Scale with Local Boss Marketing?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                Stop letting competitors take your jobs. Let's build a system that fills your calendar.
             </p>

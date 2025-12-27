@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Button, Icons } from './UI';
@@ -54,8 +55,8 @@ const Header: React.FC = () => {
           <div className="bg-brand-navy p-2 rounded-lg shadow-sm">
              <Icons.Shield className="w-6 h-6 text-brand-gold" />
           </div>
-          <span className="text-2xl font-bold tracking-tight text-brand-navy">
-            Local<span className="text-brand-red">Boss</span>
+          <span className="text-xl md:text-2xl font-bold tracking-tight text-brand-navy">
+            Local<span className="text-brand-red">Boss Marketing</span>
           </span>
         </NavLink>
 
@@ -108,7 +109,7 @@ const Header: React.FC = () => {
         <div className="hidden lg:flex items-center space-x-6">
           <a href="tel:+16072351747" className="font-bold text-brand-navy hover:text-brand-red transition-colors flex items-center">
             <Icons.Phone className="w-4 h-4 mr-2" />
-            +1 (607)
+            +1 (607) 235-1747
           </a>
           <Button onClick={openBookDemo} size="sm">
             Book Demo Call
@@ -163,7 +164,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
              <div className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl font-bold">Local<span className="text-brand-red">Boss</span></span>
+              <span className="text-2xl font-bold">Local<span className="text-brand-red">Boss Marketing</span></span>
             </div>
             <p className="text-gray-400">Turning local clicks into booked jobs for contractors and service businesses.</p>
           </div>
@@ -252,7 +253,7 @@ const AIChatWidget: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOp
   return (
     <div className="fixed bottom-24 right-6 z-[55] w-80 bg-white rounded-2xl shadow-2xl border flex flex-col animate-in slide-in-from-bottom-10 overflow-hidden">
       <div className="bg-brand-navy p-4 text-white flex justify-between items-center font-bold">
-        <span>Local Boss Assistant</span>
+        <span>Local Boss Marketing Assistant</span>
         <button onClick={onClose}><Icons.X size={18} /></button>
       </div>
       <div className="h-64 bg-gray-50 p-4 overflow-y-auto">
