@@ -1,3 +1,4 @@
+
 import { ReactNode } from 'react';
 
 export interface NavItem {
@@ -41,9 +42,4 @@ export interface ModalContextType {
   isBookDemoOpen: boolean;
   openBookDemo: () => void;
   closeBookDemo: () => void;
-  isAIVoiceOpen: boolean;
-  openAIVoice: () => void;
-  closeAIVoice: () => void;
-  isAIChatOpen: boolean;
-  toggleAIChat: () => void;
 }

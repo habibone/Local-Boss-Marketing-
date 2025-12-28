@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { SectionHeading, Card, Button, Icons } from '../components/UI.tsx';
 import { useModals } from '../components/Layout.tsx';
@@ -567,7 +568,7 @@ export const WebsitePage: React.FC = () => {
 
 // --- AI Automation Page ---
 export const AutomationPage: React.FC = () => {
-  const { openBookDemo, openAIVoice } = useModals();
+  const { openBookDemo } = useModals();
 
   return (
     <div className="pt-24 pb-20 overflow-hidden">
@@ -585,9 +586,6 @@ export const AutomationPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" onClick={openBookDemo} className="bg-brand-red shadow-[0_10px_30px_rgba(229,57,53,0.3)]">Get My AI Agent</Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-brand-navy" onClick={openAIVoice}>
-              <Icons.Mic className="mr-2" size={18} /> Test AI Voice Agent
-            </Button>
           </div>
         </div>
       </section>
@@ -652,7 +650,7 @@ export const AutomationPage: React.FC = () => {
             <div className="lg:w-1/2">
                <Card className="p-8 border-0 shadow-2xl rounded-[3rem] bg-white">
                   <div className="flex items-center gap-4 mb-8">
-                     <div className="w-12 h-12 bg-brand-navy rounded-full flex items-center justify-center text-brand-gold animate-bounce">
+                     <div className="w-12 h-12 bg-brand-navy rounded-full flex items-center justify-center text-brand-gold">
                         <Icons.Mic size={24} />
                      </div>
                      <div>
@@ -669,9 +667,6 @@ export const AutomationPage: React.FC = () => {
                         <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center shrink-0 text-white text-xs font-black">AI</div>
                         <div className="text-sm bg-brand-navy text-white p-4 rounded-2xl rounded-tr-none shadow-lg">"Yes we do! We have a technician available at 4 PM today. Should I put you on the schedule?"</div>
                      </div>
-                  </div>
-                  <div className="mt-8 pt-8 border-t border-gray-100 flex justify-center">
-                     <Button size="sm" onClick={openAIVoice} variant="secondary">Hear The Real Voice</Button>
                   </div>
                </Card>
             </div>
@@ -1533,7 +1528,6 @@ export const BlogPage: React.FC = () => {
 
 // --- Contact Page ---
 export const ContactPage: React.FC = () => {
-    const { openAIVoice } = useModals();
   return (
     <div className="pt-24 pb-20">
       <div className="container mx-auto px-4">
@@ -1541,11 +1535,6 @@ export const ContactPage: React.FC = () => {
            <div>
               <h1 className="text-4xl font-bold text-brand-navy mb-6">Get In Touch</h1>
               <p className="text-lg text-gray-600 mb-8">Ready to dominate your local market? Fill out the form or give us a call.</p>
-              <div className="bg-brand-navy text-white p-8 rounded-2xl">
-                 <h3 className="text-xl font-bold mb-2">Try our AI Agent</h3>
-                 <p className="text-gray-300 mb-4">Skip the form and talk to our AI right now.</p>
-                 <Button variant="primary" onClick={openAIVoice} className="w-full justify-center">Talk to AI</Button>
-              </div>
            </div>
            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-brand-navy mb-6">Send a Message</h3>

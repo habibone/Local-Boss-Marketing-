@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { Button, Icons, Card, SectionHeading } from '../components/UI.tsx';
 import { useModals } from '../components/Layout.tsx';
 import { NavLink } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
-  const { openBookDemo, toggleAIChat } = useModals();
+  const { openBookDemo } = useModals();
 
   const blueprints = [
     {
@@ -74,12 +75,6 @@ const HomePage: React.FC = () => {
                 <a href="tel:+16072351747" className="w-full sm:w-auto">
                    <Button variant="outline" size="lg" fullWidth>Call Now</Button>
                 </a>
-              </div>
-              
-              <div className="mt-6">
-                 <button onClick={toggleAIChat} className="text-sm text-gray-500 hover:text-brand-navy underline decoration-dotted">
-                    Or chat with our AI Assistant
-                 </button>
               </div>
             </div>
 

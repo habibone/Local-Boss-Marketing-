@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Button, Icons } from './UI.tsx';
@@ -207,13 +208,13 @@ const Footer: React.FC = () => {
   );
 };
 
-// --- Modals & Floating Actions ---
+// --- Modals ---
 
 const BookDemoModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
+      <div className="absolute inset-0 bg-brand-navy/60 backdrop-blur-sm" onClick={onClose}></div>
       <div className="bg-white rounded-2xl w-full max-w-lg relative z-10 shadow-2xl p-8 animate-in zoom-in duration-300">
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-400"><Icons.X /></button>
         <div className="text-center mb-6">
@@ -231,69 +232,13 @@ const BookDemoModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isO
   );
 };
 
-const AIVoiceModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-  return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose}></div>
-      <div className="bg-white rounded-2xl w-full max-w-md relative z-10 shadow-2xl p-8 text-center">
-        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400"><Icons.X /></button>
-        <div className="bg-brand-red/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"><Icons.Mic className="text-brand-red" /></div>
-        <h3 className="text-xl font-bold mb-2">Talk to our AI Agent</h3>
-        <p className="text-gray-600 mb-6">(Voice Widget Placeholder)</p>
-        <Button variant="outline" fullWidth onClick={onClose}>Close</Button>
-      </div>
-    </div>
-  );
-};
-
-const AIChatWidget: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-  return (
-    <div className="fixed bottom-24 right-6 z-[55] w-80 bg-white rounded-2xl shadow-2xl border flex flex-col animate-in slide-in-from-bottom-10 overflow-hidden">
-      <div className="bg-brand-navy p-4 text-white flex justify-between items-center font-bold">
-        <span>Local Boss Marketing Assistant</span>
-        <button onClick={onClose}><Icons.X size={18} /></button>
-      </div>
-      <div className="h-64 bg-gray-50 p-4 overflow-y-auto">
-        <div className="bg-white p-3 rounded-xl shadow-sm self-start max-w-[90%] text-sm">Hi! How can I help you grow your local business today?</div>
-      </div>
-      <div className="p-3 border-t bg-white flex gap-2">
-        <input disabled type="text" placeholder="Type a message..." className="flex-1 px-3 py-2 bg-gray-50 rounded-lg text-sm" />
-        <button disabled className="p-2 bg-brand-navy text-white rounded-lg opacity-50"><Icons.ArrowRight size={16} /></button>
-      </div>
-    </div>
-  );
-};
-
-const FloatingActions: React.FC = () => {
-  const { openAIVoice, toggleAIChat, isAIChatOpen } = useModals();
-  return (
-    <>
-      <div className="fixed bottom-6 left-6 z-50">
-         <button onClick={openAIVoice} className="w-14 h-14 bg-brand-red rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform"><Icons.Mic /></button>
-      </div>
-      <div className={`fixed bottom-6 right-6 z-50 ${isAIChatOpen ? 'hidden' : ''}`}>
-         <button onClick={toggleAIChat} className="w-14 h-14 bg-brand-navy rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform"><Icons.MessageCircle /></button>
-      </div>
-    </>
-  );
-};
-
 export const Layout: React.FC<{ children?: React.ReactNode }> = () => {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
-  const [isAIVoiceOpen, setIsAIVoiceOpen] = useState(false);
-  const [isAIChatOpen, setIsAIChatOpen] = useState(false);
 
   const contextValue: ModalContextType = {
     isBookDemoOpen,
     openBookDemo: () => setIsBookDemoOpen(true),
     closeBookDemo: () => setIsBookDemoOpen(false),
-    isAIVoiceOpen,
-    openAIVoice: () => setIsAIVoiceOpen(true),
-    closeAIVoice: () => setIsAIVoiceOpen(false),
-    isAIChatOpen,
-    toggleAIChat: () => setIsAIChatOpen(!isAIChatOpen),
   };
 
   return (
@@ -304,10 +249,7 @@ export const Layout: React.FC<{ children?: React.ReactNode }> = () => {
           <Outlet />
         </main>
         <Footer />
-        <FloatingActions />
         <BookDemoModal isOpen={isBookDemoOpen} onClose={() => setIsBookDemoOpen(false)} />
-        <AIVoiceModal isOpen={isAIVoiceOpen} onClose={() => setIsAIVoiceOpen(false)} />
-        <AIChatWidget isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
       </div>
     </ModalContext.Provider>
   );
