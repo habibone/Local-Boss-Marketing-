@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Button, Icons } from './UI.tsx';
@@ -41,8 +40,7 @@ const Header: React.FC = () => {
 
   const mainLinks = [
     { label: 'Home', path: '/' },
-    { label: 'Industries', path: '/industries' },
-    { label: 'Results', path: '/results' },
+    { label: 'How it Works', path: '/how-it-works' },
     { label: 'Pricing', path: '/pricing' },
     { label: 'About', path: '/about' },
   ];
@@ -56,7 +54,7 @@ const Header: React.FC = () => {
              <Icons.Shield className="w-6 h-6 text-brand-gold" />
           </div>
           <span className="text-xl md:text-2xl font-bold tracking-tight text-brand-navy">
-            Local<span className="text-brand-red">Boss Marketing</span>
+            Local<span className="text-brand-red">Boss</span> <span className="text-brand-gold">Marketing</span>
           </span>
         </NavLink>
 
@@ -64,6 +62,8 @@ const Header: React.FC = () => {
         <nav className="hidden lg:flex items-center space-x-8">
           <NavLink to="/" className={({ isActive }) => `text-sm font-semibold transition-colors hover:text-brand-red ${isActive ? 'text-brand-red' : 'text-gray-700'}`}>Home</NavLink>
           
+          <NavLink to="/how-it-works" className={({ isActive }) => `text-sm font-semibold transition-colors hover:text-brand-red ${isActive ? 'text-brand-red' : 'text-gray-700'}`}>How it Works</NavLink>
+
           {/* Services Dropdown */}
           <div className="relative group">
             <button 
@@ -94,7 +94,7 @@ const Header: React.FC = () => {
             )}
           </div>
 
-          {mainLinks.slice(1).map((link) => (
+          {mainLinks.slice(2).map((link) => (
             <NavLink 
               key={link.path} 
               to={link.path}
@@ -129,6 +129,7 @@ const Header: React.FC = () => {
       {isMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 py-6 px-4 flex flex-col space-y-2 lg:hidden h-[calc(100vh-64px)] overflow-y-auto">
           <NavLink to="/" className="block text-lg font-bold p-3 rounded-lg text-brand-navy">Home</NavLink>
+          <NavLink to="/how-it-works" className="block text-lg font-bold p-3 rounded-lg text-brand-navy">How it Works</NavLink>
           
           <div className="p-3">
             <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Our Services</p>
@@ -140,8 +141,6 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          <NavLink to="/industries" className="block text-lg font-bold p-3 rounded-lg text-brand-navy">Industries</NavLink>
-          <NavLink to="/results" className="block text-lg font-bold p-3 rounded-lg text-brand-navy">Results</NavLink>
           <NavLink to="/pricing" className="block text-lg font-bold p-3 rounded-lg text-brand-navy">Pricing</NavLink>
           <NavLink to="/about" className="block text-lg font-bold p-3 rounded-lg text-brand-navy">About Us</NavLink>
           
@@ -164,7 +163,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
              <div className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl font-bold">Local<span className="text-brand-red">Boss Marketing</span></span>
+              <span className="text-2xl font-bold">Local<span className="text-brand-red">Boss</span> <span className="text-brand-gold">Marketing</span></span>
             </div>
             <p className="text-gray-400">Turning local clicks into booked jobs for contractors and service businesses.</p>
           </div>
@@ -172,9 +171,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['Home', 'Industries', 'Results', 'Pricing', 'Blog', 'Contact'].map(label => (
+              {['Home', 'How it Works', 'Pricing', 'Blog', 'Contact'].map(label => (
                 <li key={label}>
-                  <NavLink to={`/${label === 'Home' ? '' : label.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors">{label}</NavLink>
+                  <NavLink to={`/${label === 'Home' ? '' : label.toLowerCase().replace(/ /g, '-')}`} className="text-gray-400 hover:text-white transition-colors">{label}</NavLink>
                 </li>
               ))}
             </ul>

@@ -1,331 +1,373 @@
 
 import React from 'react';
-import { Button, Icons, Card, SectionHeading } from '../components/UI.tsx';
+import { Button, Icons, Card, SectionHeading, Badge } from '../components/UI.tsx';
 import { useModals } from '../components/Layout.tsx';
-import { NavLink } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   const { openBookDemo } = useModals();
 
-  const blueprints = [
-    {
-      title: "Home Remodeling",
-      icon: <Icons.Hammer size={24} />,
-      goal: "High-Ticket Qualification",
-      weapon: "AI Lead Filtering",
-      kpi: "30% Fewer Tire-Kickers",
-      desc: "We build systems that filter out window shoppers and deliver homeowners ready to sign $50k+ contracts."
-    },
-    {
-      title: "Roofing & Siding",
-      icon: <Icons.Shield size={24} />,
-      goal: "Storm-Ready Capture",
-      weapon: "Local Map Dominance",
-      kpi: "2x Storm Lead Velocity",
-      desc: "When the hail hits, you need to be the first name they see. We optimize your GMB for maximum neighborhood visibility."
-    },
-    {
-      title: "HVAC Services",
-      icon: <Icons.Zap size={24} />,
-      goal: "Off-Season Stability",
-      weapon: "Database Reactivation",
-      kpi: "Filled Shoulder Seasons",
-      desc: "Stop the seasonal roller coaster. We use automated nurture sequences to fill your maintenance schedule year-round."
-    },
-    {
-      title: "Plumbing Pros",
-      icon: <Icons.Phone size={24} />,
-      goal: "Emergency Job Capture",
-      weapon: "Missed Call Text-Back",
-      kpi: "Zero Leads Lost to Voicemail",
-      desc: "Emergency callers book the first person who answers. If you can't pick up, our AI texts them instantly to secure the job."
-    }
-  ];
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
-  const secondaryTrades = [
-    "Electrical", "Landscaping", "Solar", "Painting", 
-    "Flooring", "Cleaning", "Fencing", "Pest Control"
+  const jumpLinks = [
+    { id: 'problem', label: 'Problem' },
+    { id: 'solution', label: 'Solution' },
+    { id: 'how-it-works', label: 'How It Works' },
+    { id: 'services', label: 'Services' },
+    { id: 'who-its-for', label: 'Who It’s For' },
+    { id: 'why-us', label: 'Why Us' },
+    { id: 'get-started', label: 'Get Started' },
   ];
 
   return (
-    <div>
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-light">
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-red/5 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-brand-navy/5 blur-3xl"></div>
-
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-brand-navy/10 text-brand-navy text-sm font-semibold mb-6">
-                <span className="w-2 h-2 rounded-full bg-brand-red mr-2 animate-pulse"></span>
-                Now accepting new contractors
-              </div>
-              <h1 className="text-4xl lg:text-6xl font-extrabold text-brand-navy leading-tight mb-6">
-                Local Customers Are Searching — <span className="text-brand-red">Your Competitors Are Answering</span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-                If your business isn’t showing up, responding fast, and following up automatically, those leads are going somewhere else.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <Button size="lg" onClick={openBookDemo} className="w-full sm:w-auto">
-                  Get Exclusive Leads
-                </Button>
-                <a href="tel:+16072351747" className="w-full sm:w-auto">
-                   <Button variant="outline" size="lg" fullWidth>Call Now</Button>
-                </a>
-              </div>
+    <div className="overflow-x-hidden">
+      {/* SECTION 1: HERO (Above the Fold) */}
+      <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-32 bg-white">
+        <div className="absolute top-0 inset-x-0 h-[80%] bg-gradient-to-b from-brand-light/50 to-white -z-10"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <Badge variant="red" className="mb-6">Built for Local Business Success</Badge>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-brand-navy leading-[1.1] mb-8 tracking-tighter">
+              Turn Your Website Into a <br className="hidden md:block" />
+              <span className="text-brand-red">24/7 Salesperson</span> <br className="hidden md:block" />
+              for Your Local Business
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Most websites just sit there. <br className="hidden md:block" />
+              We build smart websites that answer calls, reply to customers, book appointments, and bring leads — even when you’re busy or closed.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-20">
+              <Button size="lg" onClick={openBookDemo} className="w-full sm:w-auto shadow-2xl shadow-brand-red/20">
+                See How It Works (2-Minute Demo)
+              </Button>
+              <Button variant="outline" size="lg" onClick={() => scrollTo('get-started')} className="w-full sm:w-auto">
+                Get a Free Website Check
+              </Button>
             </div>
 
-            <div className="flex-1 w-full max-w-lg lg:max-w-none relative">
-              <div className="relative bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                <img 
-                   src="https://picsum.photos/800/600" 
-                   alt="Dashboard Analytics" 
-                   className="rounded-xl w-full h-auto object-cover" 
-                />
-                <div className="absolute -left-6 top-10 bg-white p-4 rounded-lg shadow-xl border border-gray-50 flex items-center space-x-3">
-                  <div className="bg-green-100 p-2 rounded-full">
-                    <Icons.Phone className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">New Lead</p>
-                    <p className="font-bold text-brand-navy">Kitchen Remodel</p>
-                  </div>
-                </div>
-                <div className="absolute -right-6 bottom-20 bg-white p-4 rounded-lg shadow-xl border border-gray-50 flex items-center space-x-3">
-                   <div className="bg-brand-gold/20 p-2 rounded-full">
-                    <Icons.Star className="w-6 h-6 text-brand-gold" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Reputation</p>
-                    <p className="font-bold text-brand-navy">5 New Reviews</p>
-                  </div>
-                </div>
-              </div>
+            {/* Quick Jump Anchor Row */}
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-10 border-t border-gray-100">
+               {jumpLinks.map(link => (
+                 <button 
+                  key={link.id} 
+                  onClick={() => scrollTo(link.id)}
+                  className="text-xs font-black uppercase tracking-widest text-brand-navy hover:text-brand-red transition-colors"
+                >
+                  {link.label}
+                 </button>
+               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- 3-STEP SYSTEM SECTION --- */}
-      <section className="py-24 bg-gray-50 overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <div className="flex-1 order-2 lg:order-1">
-              <div className="mb-10">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight mb-4">
-                  A Simple 3-Step System To <span className="text-brand-red">Explode Your Growth</span>
-                </h2>
-                <div className="h-1.5 w-24 bg-brand-red rounded-full"></div>
-              </div>
-
-              <div className="space-y-12">
+      {/* SECTION 2: THE REAL PROBLEM (ID: problem) */}
+      <section id="problem" className="py-24 bg-brand-light">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeading 
+              title="If This Sounds Like Your Business — You’re Not Alone" 
+              subtitle="The problem isn’t your service. The problem is your website isn’t doing any work for you."
+            />
+            <div className="bg-white p-10 md:p-16 rounded-[3rem] shadow-xl border border-gray-100">
+              <ul className="space-y-6 mb-12">
                 {[
-                  {
-                    num: "01",
-                    title: "We Build Your Engine",
-                    desc: "We launch your high-converting website, set up the AI automations, and optimize your Google profile."
-                  },
-                  {
-                    num: "02",
-                    title: "We Drive The Traffic",
-                    desc: "Through SEO and reputation management, we flood your business with high-intent local searchers."
-                  },
-                  {
-                    num: "03",
-                    title: "You Close The Deals",
-                    desc: "Our system filters the leads, books the appointments, and hands you ready-to-buy customers."
-                  }
-                ].map((step, i) => (
-                  <div key={i} className="flex gap-6 md:gap-8 group">
-                    <div className="text-5xl md:text-6xl font-black text-brand-red/10 group-hover:text-brand-red transition-colors duration-500 tabular-nums">
-                      {step.num}
+                  "Your phone rings… but you miss calls while working",
+                  "People visit your website… but never contact you",
+                  "Customers ask the same questions again and again",
+                  "Google shows your competitors before you",
+                  "Your website looks ‘fine’ but doesn’t bring business"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-brand-light transition-colors group">
+                    <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center shrink-0 mt-1 group-hover:bg-brand-red transition-colors">
+                      <Icons.X className="text-brand-red group-hover:text-white" size={14} />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-brand-navy mb-3">{step.title}</h3>
-                      <p className="text-lg text-gray-600 leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
+                    <span className="text-lg font-bold text-gray-700">{item}</span>
+                  </li>
                 ))}
-              </div>
-            </div>
-
-            <div className="flex-1 order-1 lg:order-2 w-full">
-              <div className="relative">
-                <div className="absolute inset-0 bg-brand-red/10 rounded-[2.5rem] blur-2xl transform translate-x-4 translate-y-4"></div>
-                <Card className="relative p-8 md:p-10 border-0 shadow-2xl rounded-[2.5rem] bg-brand-navy overflow-hidden">
-                  <div className="absolute top-0 right-0 p-10 opacity-10 text-white">
-                    <Icons.Chart size={120} />
-                  </div>
-                  <div className="relative z-10 text-white">
-                    <div className="flex items-center justify-between mb-12">
-                      <h4 className="text-xl font-bold tracking-tight">Marketing Dashboard</h4>
-                      <div className="bg-brand-red px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-lg">Live View</div>
-                    </div>
-                    <div className="mb-8">
-                      <span className="block text-blue-200 text-xs font-bold uppercase tracking-widest mb-3 opacity-80">New Leads This Month</span>
-                      <div className="flex items-end gap-5">
-                        <span className="text-6xl md:text-7xl font-black text-brand-gold tracking-tighter drop-shadow-md">2,405</span>
-                        <div className="flex items-center text-green-400 font-black mb-3 text-lg">
-                          <Icons.ArrowRight size={22} className="-rotate-45 mr-1" />
-                          <span>+22%</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-white/10">
-                      <div>
-                        <span className="block text-blue-100 text-[10px] font-bold uppercase tracking-wider mb-2 opacity-70">Conversion Rate</span>
-                        <span className="text-3xl font-black text-white">14.8%</span>
-                      </div>
-                      <div>
-                        <span className="block text-blue-100 text-[10px] font-bold uppercase tracking-wider mb-2 opacity-70">CPA (Average)</span>
-                        <span className="text-3xl font-black text-white">$12.50</span>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
+              </ul>
+              <div className="text-center pt-8 border-t border-gray-50">
+                <Button onClick={() => scrollTo('solution')} size="lg">Show Me the Fix</Button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- SERVICES SNAPSHOT --- */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading title="Everything You Need to Win Locally" />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-             {[
-               { title: "Smart Websites", desc: "Sites built to convert, not just look pretty." },
-               { title: "Missed Call Text-Back", desc: "Never lose a lead to voicemail again." },
-               { title: "SEO & Google Maps", desc: "Rank #1 in your service area." },
-               { title: "Reputation Management", desc: "Get more 5-star reviews automatically." },
-               { title: "AI Voice Agents", desc: "A receptionist that never sleeps." },
-               { title: "Lead Nurturing", desc: "Email & SMS campaigns that close deals." },
-             ].map((svc, i) => (
-               <Card key={i} className="p-6 hover:-translate-y-1 transition-transform border border-gray-100">
-                 <div className="flex items-start justify-between mb-4">
-                   <h3 className="text-lg font-bold text-brand-navy">{svc.title}</h3>
-                   <Icons.Check className="text-brand-red w-5 h-5" />
+      {/* SECTION 3: THE SOLUTION (ID: solution) */}
+      <section id="solution" className="py-32 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <SectionHeading 
+              title="We Fix That With One Simple System"
+              subtitle="Local Boss Marketing helps local business owners turn their website into a smart assistant that:"
+            />
+            <div className="grid md:grid-cols-2 gap-8 text-left mb-16">
+               {[
+                 "Talks to visitors",
+                 "Answers common questions",
+                 "Captures leads automatically",
+                 "Follows up when you miss a call",
+                 "Helps customers book faster"
+               ].map((item, i) => (
+                 <div key={i} className="flex items-center gap-4 p-6 bg-brand-light rounded-2xl border border-transparent hover:border-brand-red transition-all">
+                    <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center shrink-0">
+                       <Icons.Check className="text-white" size={18} />
+                    </div>
+                    <span className="text-lg font-black text-brand-navy">{item}</span>
                  </div>
-                 <p className="text-gray-600 mb-4">{svc.desc}</p>
-                 <NavLink to="/services" className="text-sm font-semibold text-brand-navy hover:text-brand-red flex items-center">
-                   Learn More <Icons.ArrowRight size={14} className="ml-1" />
-                 </NavLink>
-               </Card>
-             ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button onClick={openBookDemo}>Explore All Services</Button>
+               ))}
+            </div>
+            <p className="text-xl font-bold text-gray-600 mb-10 leading-relaxed">
+              You don’t need to learn marketing. <br />
+              You don’t need to manage tools. <br />
+              <span className="text-brand-navy font-black underline decoration-brand-red decoration-4">We set it up. It works in the background.</span>
+            </p>
+            <div className="pt-10 border-t border-gray-100">
+              <p className="text-brand-red font-black uppercase text-[10px] tracking-[0.2em] mb-6">Here’s how it works step-by-step.</p>
+              <Button onClick={() => scrollTo('how-it-works')} variant="outline" size="lg">See the Steps</Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* --- BLUEPRINT SECTION (INDUSTRIES WE SERVE) --- */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
+      {/* SECTION 4: HOW IT WORKS (ID: how-it-works) */}
+      <section id="how-it-works" className="py-32 bg-brand-navy text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeading 
-            title="Industries We Serve" 
-            subtitle="We don't do 'general' marketing. We build specialized growth blueprints for these specific trades." 
+            light
+            title="How Our System Brings You More Customers" 
+            subtitle="Bridging the gap between a visitor and a loyal client."
           />
           
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
-            {blueprints.map((item, i) => (
-              <div key={i} className="group relative bg-brand-navy rounded-3xl p-8 overflow-hidden transition-all duration-300 hover:translate-y-[-4px] shadow-xl">
-                <div className="absolute top-0 right-0 p-8 text-white/5 group-hover:text-white/10 transition-colors">
-                  <div className="scale-[4]">{item.icon}</div>
-                </div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 bg-brand-red rounded-xl text-white shadow-lg">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">{item.title}</h3>
-                  </div>
-                  
-                  <p className="text-blue-100/70 mb-8 leading-relaxed max-w-md">
-                    {item.desc}
-                  </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-white/10 pt-8">
-                    <div>
-                      <span className="block text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Primary Goal</span>
-                      <span className="text-sm text-white font-medium">{item.goal}</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Secret Weapon</span>
-                      <span className="text-sm text-white font-medium">{item.weapon}</span>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase tracking-widest text-brand-gold font-bold mb-1">Target KPI</span>
-                      <span className="text-sm text-white font-medium">{item.kpi}</span>
-                    </div>
-                  </div>
-                </div>
+          <div className="flex flex-col lg:flex-row items-stretch justify-center gap-8 relative max-w-6xl mx-auto">
+            {[
+              { t: "Smart Website", d: "Your website greets visitors, explains your service, and guides them to take action instead of leaving." },
+              { t: "Instant Responses", d: "If someone calls and you miss it, or sends a message — they get an automatic reply." },
+              { t: "Lead Capture", d: "Names, phone numbers, and service requests are saved automatically." },
+              { t: "Follow-Up", d: "The system follows up so you don’t lose interested customers." },
+              { t: "More Bookings", d: "You talk only to people who are already interested." }
+            ].map((step, i) => (
+              <div key={i} className="flex-1 bg-white/5 border border-white/10 p-8 rounded-[2rem] relative group hover:bg-white/10 transition-colors">
+                <div className="text-4xl font-black text-brand-red mb-6 opacity-40 group-hover:opacity-100 transition-opacity">0{i+1}</div>
+                <h4 className="text-xl font-black mb-4">{step.t}</h4>
+                <p className="text-blue-100/60 text-sm leading-relaxed">{step.d}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-brand-light rounded-[2.5rem] p-12 text-center border border-gray-100">
-            <h4 className="text-xl font-bold text-brand-navy mb-8">Also Dominating These Local Markets:</h4>
-            <div className="flex flex-wrap justify-center gap-3">
-              {secondaryTrades.map((trade, i) => (
-                <NavLink key={i} to="/industries" className="px-6 py-3 bg-white border border-gray-200 rounded-2xl font-bold text-gray-700 hover:border-brand-red hover:text-brand-red transition-all shadow-sm">
-                  {trade}
-                </NavLink>
+          <div className="mt-20 text-center">
+            <p className="text-blue-100/40 mb-8 font-bold">Now let’s look at what we set up for you.</p>
+            <Button onClick={() => scrollTo('services')} variant="white" size="lg" className="text-brand-navy">View What’s Included</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: SERVICES (ID: services) */}
+      <section id="services" className="py-32 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="What We Set Up For Your Business" 
+            subtitle="All tools work together — not separate systems." 
+          />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { t: "Smart Website", d: "A modern website that actually talks to visitors and pushes them to contact you.", icon: <Icons.Layout /> },
+              { t: "Missed-Call Text Back", d: "Miss a call? The system instantly sends a text like: 'Sorry we missed your call — how can we help?'", icon: <Icons.Phone /> },
+              { t: "Website Chat Assistant", d: "Visitors ask questions. The website answers instantly.", icon: <Icons.MessageCircle /> },
+              { t: "Google Business Profile Help", d: "We help your business show up better on Google when people search nearby.", icon: <Icons.Shield /> },
+              { t: "Reviews & Reputation", d: "We help you get more good reviews without awkward asking.", icon: <Icons.Star /> }
+            ].map((svc, i) => (
+              <Card key={i} className="group hover:-translate-y-2 transition-all">
+                <div className="w-14 h-14 bg-brand-light rounded-2xl flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
+                  {svc.icon}
+                </div>
+                <h4 className="text-2xl font-black mb-4 text-brand-navy">{svc.t}</h4>
+                <p className="text-gray-600 font-medium leading-relaxed">{svc.d}</p>
+              </Card>
+            ))}
+            <div className="bg-brand-navy rounded-[2rem] p-10 flex flex-col justify-center items-center text-center text-white relative overflow-hidden group">
+               <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity"><Icons.Zap size={100} /></div>
+               <h4 className="text-2xl font-black mb-6 relative z-10">Wondering if this is right for your business?</h4>
+               <Button onClick={() => scrollTo('who-its-for')} variant="white" size="md" className="text-brand-navy relative z-10">Is This For Me?</Button>
+            </div>
+          </div>
+          <div className="text-center mt-12 font-bold text-gray-400">
+             All tools work together — not separate systems.
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: WHO THIS IS FOR (ID: who-its-for) */}
+      <section id="who-its-for" className="py-32 bg-brand-light">
+        <div className="container mx-auto px-4 text-center">
+          <SectionHeading title="Built for Local Business Owners Like You" subtitle="Not for big corporations. Not for DIY marketers. Perfect for owners who want results, not headaches." />
+          <div className="max-w-3xl mx-auto bg-white p-12 rounded-[3.5rem] shadow-xl text-left border border-gray-100">
+             <h4 className="text-2xl font-black mb-8 text-brand-navy">This works best for:</h4>
+             <ul className="grid md:grid-cols-2 gap-6 mb-12">
+               {[
+                 "Contractors & home services",
+                 "HVAC, plumbing, remodeling",
+                 "Car rentals & auto services",
+                 "Clinics & professional services",
+                 "Any local business wanting more calls"
+               ].map((item, i) => (
+                 <li key={i} className="flex items-center gap-4">
+                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0">
+                       <Icons.Check className="text-green-600" size={14} />
+                    </div>
+                    <span className="text-lg font-bold text-gray-700">{item}</span>
+                 </li>
+               ))}
+             </ul>
+             <div className="pt-10 border-t border-gray-100 text-center">
+                <p className="text-gray-400 font-bold mb-8 italic">Here’s why owners choose Local Boss Marketing.</p>
+                <Button onClick={() => scrollTo('why-us')}>Why Choose You?</Button>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: WHY US (ID: why-us) */}
+      <section id="why-us" className="py-32 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeading 
+              align="left" 
+              title="Why Business Owners Choose Local Boss Marketing" 
+              subtitle="Your business stays the boss. Your website does the work." 
+            />
+            <div className="space-y-6 mb-12">
+              {[
+                "We speak in plain language, not marketing terms",
+                "We focus on calls, messages, and bookings — not vanity metrics",
+                "Everything is set up for local businesses, not generic websites",
+                "One connected system instead of 5 confusing tools",
+                "You always know what’s happening"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-6 p-6 bg-brand-light rounded-2xl border border-gray-100 hover:border-brand-red transition-all group">
+                  <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-brand-red shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors">
+                    <Icons.Shield size={24} />
+                  </div>
+                  <span className="text-lg md:text-xl font-black text-brand-navy">{item}</span>
+                </div>
               ))}
             </div>
-            <div className="mt-10">
-              <NavLink to="/contact" className="inline-flex items-center text-brand-red font-bold hover:underline">
-                Don't see your trade? Let's talk about custom systems <Icons.ArrowRight size={18} className="ml-2" />
-              </NavLink>
+            <div className="text-center pt-10 border-t border-gray-100">
+               <p className="text-brand-red font-black uppercase text-[10px] tracking-widest mb-6">Ready to see if this fits your business?</p>
+               <Button onClick={() => scrollTo('get-started')} size="lg">Get Started</Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- TESTIMONIALS --- */}
-      <section className="py-20 bg-brand-light">
-         <div className="container mx-auto px-4">
-            <SectionHeading title="What Clients Say" />
-            <div className="grid md:grid-cols-3 gap-8">
-               {[
-                 { quote: "Our phone is finally ringing. The missed-call text back feature alone paid for the service in the first week.", author: "Mike T.", company: "Titan Roofing" },
-                 { quote: "I used to waste so much money on Angi leads. Now I own my own traffic and the leads are exclusive to me.", author: "Sarah L.", company: "Modern Kitchens" },
-                 { quote: "The team at Local Boss Marketing actually understands contractors. No fluff, just booked jobs.", author: "David R.", company: "Rapid HVAC" }
-               ].map((test, i) => (
-                 <Card key={i} className="p-8 border-0">
-                    <div className="flex text-brand-gold mb-4">
-                       {[...Array(5)].map((芽, j) => <Icons.Star key={j} size={16} fill="currentColor" />)}
-                    </div>
-                    <p className="text-gray-600 mb-6 italic">"{test.quote}"</p>
-                    <div>
-                       <p className="font-bold text-brand-navy">{test.author}</p>
-                       <p className="text-sm text-gray-500">{test.company}</p>
-                    </div>
-                 </Card>
-               ))}
+      {/* SECTION 8: SIMPLE CTA + FORM (ID: get-started) */}
+      <section id="get-started" className="py-32 bg-brand-navy relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto bg-white rounded-[4rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row">
+            <div className="lg:w-1/2 p-12 lg:p-20 bg-brand-light">
+              <h2 className="text-3xl lg:text-5xl font-black text-brand-navy mb-8">Want to See If This Will Work for Your Business?</h2>
+              <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+                We’ll take a quick look at your current website and tell you:
+              </p>
+              <ul className="space-y-6 mb-12">
+                {[
+                  "What’s stopping customers from contacting you",
+                  "What can be fixed quickly",
+                  "If our system makes sense for you"
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4 p-4 bg-white rounded-xl shadow-sm">
+                    <Icons.Check className="text-brand-red mt-1 shrink-0" size={18} />
+                    <span className="font-bold text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-col sm:flex-row gap-4">
+                 <Button onClick={openBookDemo} size="lg" className="w-full">Watch the 2-Minute Demo</Button>
+              </div>
             </div>
-         </div>
+            <div className="lg:w-1/2 p-12 lg:p-16 bg-white">
+              <div className="mb-10 text-center lg:text-left">
+                <h3 className="text-2xl font-black text-brand-navy mb-2">Request Your Free Check</h3>
+                <p className="text-gray-500 font-medium">Get a professional report in under 24 hours.</p>
+              </div>
+              <form className="space-y-6" onSubmit={e => { e.preventDefault(); alert('Check Sent! We will contact you shortly.'); }}>
+                 <div className="grid grid-cols-2 gap-5">
+                    <div className="group space-y-2">
+                       <label className="text-[11px] font-black uppercase text-gray-500 tracking-[0.15em] ml-1 transition-colors group-focus-within:text-brand-red">Your Name</label>
+                       <input required type="text" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 font-bold text-brand-navy focus:ring-4 focus:ring-brand-red/10 focus:border-brand-red outline-none transition-all placeholder:text-gray-300" placeholder="John Doe" />
+                    </div>
+                    <div className="group space-y-2">
+                       <label className="text-[11px] font-black uppercase text-gray-500 tracking-[0.15em] ml-1 transition-colors group-focus-within:text-brand-red">Business Name</label>
+                       <input required type="text" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 font-bold text-brand-navy focus:ring-4 focus:ring-brand-red/10 focus:border-brand-red outline-none transition-all placeholder:text-gray-300" placeholder="Doe's Plumbing" />
+                    </div>
+                 </div>
+                 <div className="grid grid-cols-2 gap-5">
+                    <div className="group space-y-2">
+                       <label className="text-[11px] font-black uppercase text-gray-500 tracking-[0.15em] ml-1 transition-colors group-focus-within:text-brand-red">Phone</label>
+                       <input required type="tel" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 font-bold text-brand-navy focus:ring-4 focus:ring-brand-red/10 focus:border-brand-red outline-none transition-all placeholder:text-gray-300" placeholder="(555) 000-0000" />
+                    </div>
+                    <div className="group space-y-2">
+                       <label className="text-[11px] font-black uppercase text-gray-500 tracking-[0.15em] ml-1 transition-colors group-focus-within:text-brand-red">Email</label>
+                       <input required type="email" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 font-bold text-brand-navy focus:ring-4 focus:ring-brand-red/10 focus:border-brand-red outline-none transition-all placeholder:text-gray-300" placeholder="john@example.com" />
+                    </div>
+                 </div>
+                 <div className="group space-y-2">
+                    <label className="text-[11px] font-black uppercase text-gray-500 tracking-[0.15em] ml-1 transition-colors group-focus-within:text-brand-red">Website URL (Optional)</label>
+                    <div className="relative">
+                      <div className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-red transition-colors">
+                        <Icons.Layout size={18} />
+                      </div>
+                      <input type="url" className="w-full bg-white border border-gray-200 rounded-2xl pl-14 pr-6 py-4 font-bold text-brand-navy focus:ring-4 focus:ring-brand-red/10 focus:border-brand-red outline-none transition-all placeholder:text-gray-300" placeholder="www.yourbusiness.com" />
+                    </div>
+                 </div>
+                 <div className="group space-y-2">
+                    <label className="text-[11px] font-black uppercase text-gray-500 tracking-[0.15em] ml-1 transition-colors group-focus-within:text-brand-red">What do you want more of?</label>
+                    <div className="relative">
+                       <select className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 font-bold text-brand-navy focus:ring-4 focus:ring-brand-red/10 focus:border-brand-red outline-none transition-all appearance-none cursor-pointer">
+                          <option>I want more Phone Calls</option>
+                          <option>I want more Text Messages</option>
+                          <option>I want more Online Bookings</option>
+                       </select>
+                       <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                          <Icons.ArrowRight size={18} className="rotate-90" />
+                       </div>
+                    </div>
+                 </div>
+                 <div className="pt-6">
+                    <Button type="submit" fullWidth size="lg" className="py-5 shadow-2xl shadow-brand-red/30">
+                       <Icons.Shield size={18} className="mr-2" />
+                       Send My Free Strategy Report
+                    </Button>
+                    <div className="mt-6 flex items-center justify-center gap-4 text-gray-400">
+                       <div className="flex items-center gap-1.5">
+                          <Icons.Shield size={14} className="text-green-500" />
+                          <span className="text-[10px] font-black uppercase tracking-widest">Secure Submission</span>
+                       </div>
+                       <div className="w-px h-3 bg-gray-200"></div>
+                       <span className="text-[11px] font-bold tracking-tight italic">
+                          No pressure. No credit card required.
+                       </span>
+                    </div>
+                 </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* --- FINAL CTA --- */}
-      <section className="py-24 bg-brand-navy text-white text-center">
-         <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-6">Ready to Scale with Local Boss Marketing?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-               Stop letting competitors take your jobs. Let's build a system that fills your calendar.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-               <Button onClick={openBookDemo} size="lg" className="bg-brand-red hover:bg-white hover:text-brand-red">Book Demo Call</Button>
-               <a href="tel:+16072351747">
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy">Call Now</Button>
-               </a>
-            </div>
-         </div>
+      {/* SECTION 9: FOOTER MESSAGE */}
+      <section className="py-20 bg-brand-light border-t border-gray-100">
+        <div className="container mx-auto px-4 text-center">
+           <h3 className="text-2xl md:text-3xl font-black text-brand-navy max-w-2xl mx-auto leading-tight">
+              You focus on running your business. <br className="hidden md:block" />
+              We’ll make sure your website helps instead of hurts.
+           </h3>
+        </div>
       </section>
     </div>
   );

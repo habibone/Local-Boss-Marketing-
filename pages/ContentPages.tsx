@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { SectionHeading, Card, Button, Icons } from '../components/UI.tsx';
+import { SectionHeading, Card, Button, Icons, Badge } from '../components/UI.tsx';
 import { useModals } from '../components/Layout.tsx';
 import { NavLink } from 'react-router-dom';
 
@@ -149,7 +149,7 @@ export const TermsPage: React.FC = () => {
 
           <h2 className="text-xl font-bold mt-8 mb-4">7. Changes to This Agreement</h2>
           <p className="mb-6">
-            We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days’ notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+            Welcome to Local Boss Marketing LLC. These Terms & Conditions (“Terms”) govern your access to and use of our website <a href="https://www.localbossmarketing.com" className="text-brand-red hover:underline">www.localbossmarketing.com</a> (“Site”) and the services we provide, including our software and related tools that assist in Website and Sales Funnel creation, Reputation Management, Automatic Text Replies for Missed Calls, Smart Website Chat Tool, Text Messaging with Customers, and Social Media Marketing (“Service”). By accessing or using our Site or Service, you agree to comply with and be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, please do not use our Site or Service.
           </p>
 
           <h2 className="text-xl font-bold mt-8 mb-4">8. Governing Law</h2>
@@ -178,69 +178,50 @@ export const TermsPage: React.FC = () => {
 export const GMBPage: React.FC = () => {
   const { openBookDemo } = useModals();
 
-  const faqs = [
-    {
-      q: "How long does it take to see results?",
-      a: "While some technical fixes happen instantly, most GMB rankings take 60-90 days of consistent signal building (reviews, geotagged photos, and citations) to move into the 'Top 3 Map Pack'."
-    },
-    {
-      q: "What if I work from home and don't have a storefront?",
-      a: "That is called a 'Service Area Business.' We specialize in optimizing these profiles so you still show up for local searches without revealing your home address."
-    },
-    {
-      q: "Why isn't my business showing up even when I'm standing in my office?",
-      a: "This is usually due to 'relevance' or 'prominence' issues. Google doesn't think your profile is active enough or authoritative enough compared to competitors who are posting daily updates."
-    },
-    {
-      q: "Does Local Boss Marketing handle the review responses?",
-      a: "Yes. Part of our growth framework includes professionally responding to every review using keyword-optimized language that helps boost your ranking signals."
-    }
-  ];
-
   return (
-    <div className="pt-24 pb-20 overflow-hidden">
+    <div className="pt-24 pb-20 overflow-hidden bg-white">
       {/* Hero */}
-      <section className="bg-brand-navy py-24 text-white relative">
+      <section className="bg-brand-navy py-32 text-white relative">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
           <Icons.Map className="w-full h-full text-white scale-150 rotate-12" />
         </div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 text-center lg:text-left">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-2/3 text-center lg:text-left">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-red/20 text-brand-red border border-brand-red/30 text-xs font-black uppercase tracking-widest mb-6">
-                Google Business Profile Mastery
-              </div>
-              <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight">
+            <div className="lg:w-2/3">
+              <Badge variant="red" className="mb-6 shadow-xl shadow-brand-red/10">Google Business Authority</Badge>
+              {/* HEADING PRESERVED EXACTLY AS REQUESTED */}
+              <h1 className="text-4xl md:text-8xl font-black mb-8 leading-[1.05] tracking-tighter">
                 Own the <span className="text-brand-red">Map Pack</span>.<br />Own Your City.
               </h1>
-              <p className="max-w-2xl text-xl text-gray-300 mb-10 leading-relaxed">
-                70% of local service clicks go to the first 3 results on Google Maps. If you aren't there, you're invisible. We use a proprietary ranking framework to push your business to the top.
+              <p className="max-w-2xl text-xl md:text-2xl text-blue-100/70 mb-12 leading-relaxed">
+                70% of local service clicks stay within the first 3 Map results. If you aren't there, you're invisible. We use a proprietary ranking framework to force your business into the "Money Zone."
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" onClick={openBookDemo} className="bg-brand-red">
-                  Check My Ranking Today
+              <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+                <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-12 shadow-2xl shadow-brand-red/30">
+                  Run My Ranking Audit
                 </Button>
                 <a href="tel:+16072351747" className="group">
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-brand-navy">
+                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white hover:text-brand-navy px-12">
                     Talk to a Maps Expert
                   </Button>
                 </a>
               </div>
             </div>
             <div className="lg:w-1/3 hidden lg:block">
-               <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-sm relative">
-                  <div className="absolute -top-6 -right-6 bg-brand-gold text-brand-navy font-black p-4 rounded-2xl shadow-2xl rotate-12">
+               <div className="bg-white/5 border border-white/10 p-8 rounded-[3rem] backdrop-blur-md relative">
+                  <div className="absolute -top-6 -right-6 bg-brand-gold text-brand-navy font-black p-5 rounded-2xl shadow-2xl rotate-12 flex items-center gap-2">
+                    <Icons.Star size={20} fill="currentColor" />
                     #1 RANKED
                   </div>
-                  <div className="space-y-4">
-                    <div className="h-4 w-3/4 bg-white/20 rounded"></div>
-                    <div className="h-4 w-1/2 bg-white/10 rounded"></div>
-                    <div className="flex gap-1 text-brand-gold">
-                      {[...Array(5)].map((_, i) => <Icons.Star key={i} size={16} fill="currentColor" />)}
+                  <div className="space-y-6">
+                    <div className="h-4 w-3/4 bg-white/20 rounded-full"></div>
+                    <div className="h-4 w-1/2 bg-white/10 rounded-full"></div>
+                    <div className="flex gap-1.5 text-brand-gold">
+                      {[...Array(5)].map((_, i) => <Icons.Star key={i} size={18} fill="currentColor" />)}
                     </div>
-                    <div className="pt-4 grid grid-cols-2 gap-2">
-                       <div className="h-20 bg-white/5 rounded-xl border border-white/5"></div>
-                       <div className="h-20 bg-white/5 rounded-xl border border-white/5"></div>
+                    <div className="pt-6 grid grid-cols-2 gap-3">
+                       <div className="h-24 bg-white/5 rounded-2xl border border-white/5 animate-pulse"></div>
+                       <div className="h-24 bg-white/5 rounded-2xl border border-white/5 animate-pulse delay-75"></div>
                     </div>
                   </div>
                </div>
@@ -249,199 +230,228 @@ export const GMBPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-brand-light border-b border-gray-200">
+      {/* The Local Grid Heatmap Section */}
+      <section className="py-28 bg-brand-light">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: "Mobile Intent", val: "88%", desc: "of mobile searches lead to a call within 24h" },
-              { label: "The 3-Pack", val: "70%", desc: "of clicks stay inside the Map results" },
-              { label: "Trust Factor", val: "92%", desc: "trust local results more than paid ads" },
-              { label: "Conversion", val: "3x", desc: "higher ROI than general web SEO" }
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                 <div className="text-3xl md:text-4xl font-black text-brand-navy mb-1">{stat.val}</div>
-                 <div className="text-[10px] font-black uppercase text-brand-red tracking-widest mb-2">{stat.label}</div>
-                 <p className="text-xs text-gray-500 font-medium leading-tight">{stat.desc}</p>
-              </div>
-            ))}
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div className="lg:w-1/2">
+               <SectionHeading 
+                align="left"
+                badge="The Invisible Reality"
+                title={<>Your Ranking Changes Every <span className='text-brand-red italic'>Square Mile</span></>}
+                subtitle="Google shows different results depending on where the customer is standing. Most businesses rank #1 in their office, but drop to #10 just three miles away. We fix the drop-off."
+               />
+               <div className="space-y-6 mb-10">
+                  {[
+                    { t: "Hyper-Local Authority", d: "We extend your ranking 'radius' so you dominate the entire city, not just your street." },
+                    { t: "Geofenced Optimization", d: "Targeted geotagging of assets to signal to Google that you service specific high-value neighborhoods." },
+                    { t: "Competitor Displacement", d: "Pushing out 'ghost' listings and low-authority competitors from the top 3 spots." }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4">
+                       <div className="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-brand-gold shrink-0">
+                          <Icons.Map size={20} />
+                       </div>
+                       <div>
+                          <h4 className="font-black text-brand-navy text-lg leading-tight">{item.t}</h4>
+                          <p className="text-gray-500 text-sm font-medium">{item.d}</p>
+                       </div>
+                    </div>
+                  ))}
+               </div>
+            </div>
+            <div className="lg:w-1/2 w-full relative">
+               <div className="bg-white p-10 rounded-[4rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="flex justify-between items-center mb-8">
+                     <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Local Ranking Heatmap</span>
+                     <Badge variant="gold">LIVE SIMULATION</Badge>
+                  </div>
+                  
+                  {/* Heatmap Grid Mockup */}
+                  <div className="grid grid-cols-3 gap-4 mb-10">
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className={`aspect-square rounded-2xl flex items-center justify-center relative ${i === 4 ? 'bg-green-500 shadow-[0_0_20px_rgba(34,197,94,0.4)]' : 'bg-red-500/10'}`}>
+                         <Icons.Map size={24} className={i === 4 ? 'text-white' : 'text-red-500'} />
+                         <span className={`absolute -bottom-2 font-black text-[10px] ${i === 4 ? 'text-green-600' : 'text-red-500'}`}>
+                           {i === 4 ? '#1' : `#${i+8}`}
+                         </span>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="p-6 bg-brand-navy rounded-3xl text-center">
+                     <p className="text-white font-bold text-sm">This business is <span className="text-brand-red">Invisible</span> everywhere <br /> except their front door.</p>
+                  </div>
+               </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* The 3 Pillars of Ranking */}
-      <section className="py-24 bg-white">
+      {/* The 3 Pillars Deep-Dive */}
+      <section className="py-28 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="The Google Ranking Algorithm Decoded" 
-            subtitle="Google doesn't rank businesses by accident. They look for three specific signals. We optimize for all of them." 
+            subtitle="Google doesn't rank businesses by accident. They use three core metrics to determine who gets the phone calls. We optimize all three." 
           />
-          <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
             {[
               { 
-                title: "Proximity", 
-                desc: "We ensure you show up exactly where your customers live by optimizing your service areas and building local relevance signals.",
+                title: "Proximity & Radius", 
+                desc: "Google prioritizes businesses closest to the searcher. We use advanced service-area optimization to 'stretch' your ranking signal across your entire territory.",
                 icon: Icons.Map,
-                color: "text-blue-600"
+                color: "text-blue-600",
+                badge: "GEOGRAPHIC REACH"
               },
               { 
-                title: "Relevance", 
-                desc: "We match your profile categories and content to exactly what people are searching for (e.g. 'Emergency Pipe Repair' vs 'Plumber').",
+                title: "Relevance & Content", 
+                desc: "We align your profile categories, GMB posts, and website LSI keywords so Google knows exactly which high-ticket jobs you are the authority for.",
                 icon: Icons.Zap,
-                color: "text-brand-red"
+                color: "text-brand-red",
+                badge: "KEYWORD ALIGNMENT"
               },
               { 
-                title: "Prominence", 
-                desc: "We build your authority through consistent 5-star reviews, high-quality geotagged photos, and local business citations.",
+                title: "Prominence & Proof", 
+                desc: "This is your authority score. We boost this through review velocity, citation consistency, and backlink authority from local directories.",
                 icon: Icons.Shield,
-                color: "text-brand-gold"
+                color: "text-brand-gold",
+                badge: "SOCIAL AUTHORITY"
               }
             ].map((pillar, i) => (
-              <Card key={i} className="p-10 border-0 bg-brand-light rounded-[2.5rem] shadow-inner text-center group hover:bg-brand-navy transition-all duration-500">
-                <div className={`w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-sm group-hover:scale-110 transition-transform ${pillar.color}`}>
-                  <pillar.icon size={32} />
+              <Card key={i} className="p-12 border-0 bg-brand-light rounded-[3rem] shadow-lg group hover:bg-brand-navy transition-all duration-500 flex flex-col h-full">
+                <div className={`w-20 h-20 bg-white rounded-3xl flex items-center justify-center mb-8 shadow-md group-hover:scale-110 transition-transform ${pillar.color}`}>
+                  <pillar.icon size={40} />
                 </div>
+                <Badge variant="navy" className="mb-4 bg-brand-navy/10 group-hover:bg-white/10 group-hover:text-white">{pillar.badge}</Badge>
                 <h4 className="text-2xl font-black text-brand-navy mb-4 group-hover:text-white">{pillar.title}</h4>
-                <p className="text-gray-600 group-hover:text-blue-100 leading-relaxed">{pillar.desc}</p>
+                <p className="text-gray-600 group-hover:text-blue-100 leading-relaxed font-medium flex-1">{pillar.desc}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Visual Ranking Comparison */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-20">
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-black text-brand-navy mb-8 leading-tight">Don't Get Buried on <span className="text-brand-red">Page 2</span></h2>
-              <div className="space-y-8">
-                 <div className="flex gap-4">
-                    <div className="shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600"><Icons.Check size={18} /></div>
-                    <p className="text-lg text-gray-700 font-medium">Businesses in the Map Pack see <span className="font-bold text-brand-navy">400% more calls</span> than those just below them.</p>
-                 </div>
-                 <div className="flex gap-4">
-                    <div className="shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600"><Icons.Check size={18} /></div>
-                    <p className="text-lg text-gray-700 font-medium">Over 50% of GMB interactions are <span className="font-bold text-brand-navy">direct phone calls</span> from the search result.</p>
-                 </div>
-                 <div className="flex gap-4">
-                    <div className="shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600"><Icons.Check size={18} /></div>
-                    <p className="text-lg text-gray-700 font-medium">Local reviews are the <span className="font-bold text-brand-navy">#1 conversion factor</span> for service businesses in 2024.</p>
-                 </div>
-              </div>
-              <div className="mt-12">
-                 <Button size="lg" onClick={openBookDemo}>Show Me How I Rank</Button>
-              </div>
-            </div>
-            <div className="lg:w-1/2 w-full">
-              <div className="bg-white p-8 rounded-[3rem] shadow-2xl border border-gray-100 relative overflow-hidden">
-                <div className="mb-6 pb-6 border-b border-gray-100">
-                   <div className="flex items-center gap-3 mb-2">
-                      <Icons.Map className="text-brand-red" size={20} />
-                      <span className="font-black text-brand-navy uppercase tracking-tighter text-sm">Google Search Result Mockup</span>
-                   </div>
+      {/* ROI & Lead Cost Comparison */}
+      <section className="py-28 bg-brand-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-20">
+             <Badge variant="white" className="mb-6">The Profit Math</Badge>
+             <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
+                Organic Calls vs. <br />
+                <span className="text-brand-gold italic">Shared Leads</span>
+             </h2>
+             <p className="text-xl text-blue-100/70 max-w-2xl mx-auto">
+                Stop paying for leads that are sold to 5 other contractors. Build an asset you own that rings your phone exclusively.
+             </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+             <div className="p-10 bg-white/5 border border-white/10 rounded-[3rem] backdrop-blur-md">
+                <h4 className="text-2xl font-black mb-8 flex items-center gap-3">
+                   <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white"><Icons.X size={16} /></div>
+                   Lead Aggregators (Angi/LSA)
+                </h4>
+                <ul className="space-y-6">
+                   {[
+                     { l: "Lead Cost", v: "$50 - $150 per lead" },
+                     { l: "Competition", v: "Shared with 3-5 others" },
+                     { l: "Ownership", v: "You pay forever" },
+                     { l: "Profitability", v: "Low margins" }
+                   ].map((item, i) => (
+                     <li key={i} className="flex justify-between border-b border-white/10 pb-4">
+                        <span className="text-gray-400 font-bold">{item.l}</span>
+                        <span className="font-black text-red-400">{item.v}</span>
+                     </li>
+                   ))}
+                </ul>
+             </div>
+             
+             <div className="p-10 bg-brand-red rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
+                   <Icons.Zap size={160} />
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-brand-navy p-6 rounded-2xl shadow-xl border-l-8 border-brand-red">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1">
-                           <div className="w-5 h-5 bg-brand-red rounded flex items-center justify-center text-[10px] text-white font-bold">1</div>
-                           <h4 className="font-black text-white text-lg">Your Business</h4>
-                        </div>
-                        <div className="flex text-brand-gold gap-1 text-xs">
-                          {[...Array(5)].map((_, i) => <Icons.Star key={i} size={12} fill="currentColor" />)}
-                          <span className="text-blue-200 ml-1">4.9 (248 reviews)</span>
-                        </div>
-                      </div>
-                      <div className="bg-green-500 text-white text-[10px] px-2 py-1 rounded font-black">OPEN NOW</div>
-                    </div>
-                    <div className="mt-4 flex gap-2">
-                       <div className="flex-1 h-8 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-white"><Icons.Phone size={12} className="mr-1" /> Call</div>
-                       <div className="flex-1 h-8 bg-white/10 rounded-lg flex items-center justify-center text-[10px] font-bold text-white"><Icons.Map size={12} className="mr-1" /> Directions</div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 opacity-60 grayscale">
-                    <div className="flex items-center gap-2 mb-1">
-                        <div className="w-5 h-5 bg-gray-300 rounded flex items-center justify-center text-[10px] text-gray-500 font-bold">2</div>
-                        <h4 className="font-bold text-gray-500">Your Competitor</h4>
-                    </div>
-                    <div className="flex text-gray-300 gap-1 text-xs">
-                        {[...Array(4)].map((_, i) => <Icons.Star key={i} size={12} fill="currentColor" />)}
-                        <span className="ml-1">4.1 (12 reviews)</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 opacity-40 grayscale">
-                    <div className="flex items-center gap-2 mb-1">
-                        <div className="w-5 h-5 bg-gray-300 rounded flex items-center justify-center text-[10px] text-gray-500 font-bold">3</div>
-                        <h4 className="font-bold text-gray-500">Another Competitor</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                <h4 className="text-2xl font-black mb-8 flex items-center gap-3 relative z-10">
+                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-red"><Icons.Check size={16} /></div>
+                   LBM GMB Dominance
+                </h4>
+                <ul className="space-y-6 relative z-10">
+                   {[
+                     { l: "Lead Cost", v: "$0.00 (Organic)" },
+                     { l: "Competition", v: "100% Exclusive Calls" },
+                     { l: "Ownership", v: "You own the territory" },
+                     { l: "Profitability", v: "Highest margins" }
+                   ].map((item, i) => (
+                     <li key={i} className="flex justify-between border-b border-white/20 pb-4">
+                        <span className="text-red-100 font-bold">{item.l}</span>
+                        <span className="font-black text-white">{item.v}</span>
+                     </li>
+                   ))}
+                </ul>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* The LBM GMB Framework */}
-      <section className="py-24 bg-brand-navy text-white overflow-hidden relative">
-        <div className="container mx-auto px-4 relative z-10">
+      {/* The 12-Step Implementation Vault */}
+      <section className="py-28 bg-white">
+        <div className="container mx-auto px-4">
           <SectionHeading 
-            title="The Local Boss Marketing GMB Framework" 
-            subtitle="Our 100-point optimization checklist ensures no stone is left unturned." 
-            light 
+            title="The GMB Dominance Framework" 
+            subtitle="We don't just 'optimize' your profile. We implement a surgical 12-step growth engine."
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-x-20 gap-y-12 max-w-5xl mx-auto">
             {[
-              { t: "Profile Audit", d: "Correcting NAP (Name, Address, Phone) consistency across the entire web." },
-              { t: "Keyword Injection", d: "Embedding high-intent local keywords into your services and description." },
-              { t: "Content Velocity", d: "Weekly posts and geotagged photos to prove to Google you are active." },
-              { t: "Review Strategy", d: "Automated loops that request and respond to 5-star customer feedback." }
+              { t: "NAP Audit", d: "Scanning 100+ directories to ensure Name, Address, and Phone consistency (Critical for Trust)." },
+              { t: "EXIF Metadata Injection", d: "Injecting geographic coordinates into your business photos to signal local relevance." },
+              { t: "Competitor Spam Purge", d: "Reporting and removing fake competitor listings that are stealing your local traffic." },
+              { t: "Review Velocity Management", d: "Automated systems to ensure a steady stream of keywords-rich 5-star reviews." },
+              { t: "Category Siloing", d: "Correctly nesting your primary and secondary categories to capture high-intent searches." },
+              { t: "LSI Post Engine", d: "Weekly keyword-optimized posts that signal to Google your profile is hyper-active." }
             ].map((step, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-sm group hover:border-brand-red transition-all">
-                <div className="text-4xl font-black text-brand-red mb-6 opacity-40 group-hover:opacity-100 transition-opacity">0{i+1}</div>
-                <h4 className="text-xl font-bold mb-4">{step.t}</h4>
-                <p className="text-blue-100/70 text-sm leading-relaxed">{step.d}</p>
+              <div key={i} className="flex gap-6 group">
+                <div className="text-4xl font-black text-brand-navy/10 group-hover:text-brand-red transition-colors duration-300">0{i+1}</div>
+                <div>
+                   <h5 className="text-xl font-black text-brand-navy mb-2">{step.t}</h5>
+                   <p className="text-gray-500 font-medium text-sm leading-relaxed">{step.d}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-           <SectionHeading title="Common Maps Questions" subtitle="Everything you need to know about dominating local search." />
-           <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <div key={i} className="bg-brand-light p-8 rounded-2xl border border-gray-100">
-                   <h4 className="text-xl font-black text-brand-navy mb-4 flex items-start gap-3">
-                      <span className="text-brand-red">Q:</span> {faq.q}
-                   </h4>
-                   <p className="text-gray-600 leading-relaxed pl-7 border-l-2 border-brand-navy/10">
-                      {faq.a}
-                   </p>
+      {/* Final High-Impact CTA */}
+      <section className="py-28 bg-brand-light">
+        <div className="container mx-auto px-4 text-center">
+           <div className="max-w-5xl mx-auto bg-brand-navy p-12 md:p-32 rounded-[5rem] shadow-2xl relative overflow-hidden group">
+             <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-1000">
+               <Icons.Map size={300} />
+             </div>
+             <div className="relative z-10">
+                <h2 className="text-4xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tighter">
+                   Your City Is <span className="text-brand-red italic">Waiting.</span> <br />
+                   Claim Your Spot.
+                </h2>
+                <p className="text-xl md:text-2xl text-blue-100/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+                  We only work with ONE contractor per trade per area. If your competitor claims the top spot first, we can't help you knock them off. 
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-6">
+                   <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-20 shadow-2xl shadow-brand-red/30 transform hover:scale-105">
+                     Check My Territory Availability
+                   </Button>
                 </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 bg-brand-light text-center">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-black text-brand-navy mb-6">Your Competitors Are On The Map. Are You?</h2>
-            <p className="text-xl text-gray-600 mb-10">Stop losing easy jobs to businesses with better profiles. Claim your #1 spot and start winning today.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" onClick={openBookDemo} className="bg-brand-red">Audit My GMB Profile Now</Button>
-              <NavLink to="/contact">
-                <Button variant="outline" size="lg">Send Us a Message</Button>
-              </NavLink>
-            </div>
+                <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-10 opacity-40">
+                   <div className="flex items-center gap-2">
+                     <Icons.Check size={20} className="text-brand-gold" />
+                     <span className="text-xs font-black uppercase tracking-widest text-white">Full Citation Audit Included</span>
+                   </div>
+                   <div className="flex items-center gap-2">
+                     <Icons.Check size={20} className="text-brand-gold" />
+                     <span className="text-xs font-black uppercase tracking-widest text-white">Real-Time ROI Tracking</span>
+                   </div>
+                </div>
+             </div>
           </div>
         </div>
       </section>
@@ -454,112 +464,196 @@ export const WebsitePage: React.FC = () => {
   const { openBookDemo } = useModals();
 
   return (
-    <div className="pt-24 pb-20 overflow-hidden">
-      {/* Hero */}
-      <section className="bg-brand-navy py-24 text-white relative">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-red/20 text-brand-red border border-brand-red/30 text-xs font-black uppercase tracking-widest mb-6">
-            Conversion Architecture
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight">
-            The Digital <span className="text-brand-red">Sales Machine</span>
+    <div className="pt-24 pb-20 overflow-hidden bg-white">
+      {/* Hero Section */}
+      <section className="bg-brand-navy py-32 text-white relative">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Badge variant="red" className="mb-6 shadow-xl shadow-brand-red/10">Engineered for Conversion</Badge>
+          {/* HEADING PRESERVED EXACTLY AS REQUESTED */}
+          <h1 className="text-4xl md:text-8xl font-black mb-8 leading-[1.05] tracking-tighter max-w-5xl mx-auto">
+            Stop Losing <span className="text-brand-red italic">90%</span> <br className="hidden md:block" />
+            Of Your Website Visitors
           </h1>
-          <p className="max-w-3xl mx-auto text-xl text-gray-300 mb-10 leading-relaxed">
-            Stop losing 90% of your website traffic. We build ultra-fast, psychology-backed websites and funnels that transform "window shoppers" into high-paying clients.
+          <p className="max-w-3xl mx-auto text-xl md:text-2xl text-blue-100/70 mb-12 leading-relaxed font-medium">
+            Most local agency websites are "digital brochures"—pretty to look at, but useless for sales. We build <span className="text-white font-black underline decoration-brand-red decoration-4">Revenue Engines</span> that capture leads while you sleep.
           </p>
-          <Button size="lg" onClick={openBookDemo} className="bg-brand-red">Build My Machine</Button>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-12 shadow-2xl shadow-brand-red/30">
+              Build My Revenue Engine
+            </Button>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white hover:text-brand-navy px-12">
+              Audit My Current Site
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* The 1-Second Load Rule */}
-      <section className="py-24 bg-white">
+      {/* The 3-Second Window */}
+      <section className="py-28 bg-brand-light overflow-hidden border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div className="lg:w-1/2">
+              <SectionHeading 
+                align="left"
+                badge="The 3-Second Rule"
+                title={<>The Window Of <span className="text-brand-red">Opportunity</span> Is Closing</>}
+                subtitle="In the local world, speed is the only advantage. If your site takes 4 seconds to load, half your potential customers are already clicking on your competitor's link."
+              />
+              <div className="space-y-8">
+                 {[
+                   { t: "Frictionless Capture Quizzes", d: "Standard forms are lead-killers. We use multi-step 'Smart Quizzes' that feel like a conversation and convert 3x better by qualifying the lead instantly." },
+                   { t: "Mobile-Dominant UI", d: "92% of local searches happen on a phone. We build 'Thumb-Friendly' layouts that place the call button exactly where the user's hand is." },
+                   { t: "Persuasive Direct-Response Copy", d: "We don't write generic descriptions. We write psychological sales scripts that target customer pain points and trigger the 'Call Now' response." }
+                 ].map((item, i) => (
+                   <div key={i} className="flex gap-6 items-start p-8 bg-white rounded-[2.5rem] shadow-xl border border-gray-100 group hover:-translate-y-1 transition-transform">
+                     <div className="w-14 h-14 rounded-2xl bg-brand-navy flex items-center justify-center text-brand-gold shrink-0 shadow-lg">
+                        <Icons.Zap size={28} />
+                     </div>
+                     <div>
+                       <h4 className="text-xl font-black text-brand-navy mb-2 leading-tight">{item.t}</h4>
+                       <p className="text-gray-500 font-medium leading-relaxed">{item.d}</p>
+                     </div>
+                   </div>
+                 ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full relative">
+               <div className="absolute -inset-10 bg-brand-navy/5 rounded-[5rem] -z-10 rotate-3"></div>
+               <div className="bg-white p-10 rounded-[4rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="mb-10 border-b border-gray-100 pb-8 flex items-center justify-between">
+                     <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                     </div>
+                     <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">LBM Speed-Core Live</span>
+                     </div>
+                  </div>
+                  
+                  <div className="space-y-16">
+                     <div className="relative">
+                        <div className="flex justify-between items-end mb-4">
+                           <div>
+                              <span className="block text-[11px] font-black text-gray-400 uppercase tracking-tighter mb-1">Generic Contractor Template</span>
+                              <span className="text-3xl font-black text-brand-navy">4.2s Load Time</span>
+                           </div>
+                           <Badge variant="red" className="px-3">CRITICAL</Badge>
+                        </div>
+                        <div className="h-4 bg-gray-100 rounded-full w-full overflow-hidden shadow-inner">
+                           <div className="h-full bg-brand-red w-[78%] animate-pulse"></div>
+                        </div>
+                        <div className="mt-4 flex justify-between text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                           <span>Bounce Rate: 64%</span>
+                           <span>Lead Loss: High</span>
+                        </div>
+                     </div>
+
+                     <div className="relative">
+                        <div className="flex justify-between items-end mb-4">
+                           <div>
+                              <span className="block text-[11px] font-black text-brand-red uppercase tracking-tighter mb-1">LBM Revenue Engine</span>
+                              <span className="text-3xl font-black text-brand-navy">0.7s Load Time</span>
+                           </div>
+                           <Badge variant="gold" className="px-3">ELITE</Badge>
+                        </div>
+                        <div className="h-4 bg-brand-light rounded-full w-full overflow-hidden shadow-inner">
+                           <div className="h-full bg-green-500 w-[99%] shadow-[0_0_20px_rgba(34,197,94,0.6)]"></div>
+                        </div>
+                        <div className="mt-4 flex justify-between text-[10px] font-black text-green-600 uppercase tracking-widest">
+                           <span>Bounce Rate: 8%</span>
+                           <span>Lead Loss: Zero</span>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div className="mt-12 p-6 bg-brand-navy rounded-3xl text-center">
+                     <p className="text-white font-bold text-sm">We don't build sites to look "nice". <br /> We build sites to <span className="text-brand-gold italic">DOMINATE</span>.</p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Anatomy of a Winner Section */}
+      <section className="py-28 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
           <SectionHeading 
-            title="Speed Is Revenue" 
-            subtitle="If your site takes more than 3 seconds to load, you've already lost the lead. Our sites are engineered for pure velocity." 
+            title={<>The Anatomy of a <span className="text-brand-red">Booked Job</span></>}
+            subtitle="Every pixel on our sites is placed with intent. We use consumer psychology to guide visitors from 'just looking' to 'hire me'."
           />
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="bg-brand-light p-10 rounded-[2.5rem] border border-gray-100 relative shadow-inner">
-               <div className="mb-10">
-                 <div className="flex justify-between items-end mb-4">
-                    <span className="text-sm font-black text-brand-navy uppercase">Old Slow Website</span>
-                    <span className="text-gray-400 font-bold">6.8 Seconds</span>
-                 </div>
-                 <div className="h-4 bg-gray-200 rounded-full overflow-hidden">
-                    <div className="h-full bg-gray-400 w-full animate-pulse"></div>
-                 </div>
-               </div>
-               <div className="mb-4">
-                 <div className="flex justify-between items-end mb-4">
-                    <span className="text-sm font-black text-brand-red uppercase">Local Boss Marketing Site</span>
-                    <span className="text-brand-red font-black">0.8 Seconds</span>
-                 </div>
-                 <div className="h-4 bg-brand-navy rounded-full overflow-hidden">
-                    <div className="h-full bg-brand-red w-[12%] shadow-[0_0_15px_rgba(229,57,53,0.5)]"></div>
-                 </div>
-               </div>
-               <p className="text-xs text-gray-500 font-bold mt-8 italic text-center">"Every 1-second delay reduces conversions by 7%." — Akamai Research</p>
-            </div>
-            <div className="space-y-8">
-              <h3 className="text-3xl font-black text-brand-navy">Why Our Sites <span className="text-brand-red">Crush</span> The Competition:</h3>
-              <ul className="space-y-6">
-                <li className="flex gap-4">
-                  <Icons.Check className="text-green-500 shrink-0 mt-1" />
-                  <div>
-                    <span className="block font-bold text-brand-navy">Psychological Trigger Points</span>
-                    <p className="text-gray-600">We use authority signals, scarcity, and trust badges to guide users to the "Call" button.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <Icons.Check className="text-green-500 shrink-0 mt-1" />
-                  <div>
-                    <span className="block font-bold text-brand-navy">Smart Lead Qualification</span>
-                    <p className="text-gray-600">Forms that ask the right questions so you only spend time on high-ticket jobs.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <Icons.Check className="text-green-500 shrink-0 mt-1" />
-                  <div>
-                    <span className="block font-bold text-brand-navy">Direct CRM Integration</span>
-                    <p className="text-gray-600">Leads go straight to your phone. No spreadsheets. No manual entry.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+          
+          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
+             <div className="order-2 lg:order-1 relative">
+                <div className="bg-brand-navy rounded-[3rem] p-4 shadow-2xl relative overflow-hidden">
+                   <div className="bg-white rounded-[2.5rem] overflow-hidden aspect-[3/4] relative">
+                      {/* Fake Website Mockup */}
+                      <div className="h-14 bg-brand-navy flex items-center px-6 gap-3">
+                         <div className="w-8 h-8 rounded bg-brand-gold"></div>
+                         <div className="h-2 w-24 bg-white/20 rounded"></div>
+                      </div>
+                      <div className="p-8">
+                         <div className="h-4 w-3/4 bg-gray-200 rounded mb-4"></div>
+                         <div className="h-10 w-full bg-brand-red rounded-xl mb-12 flex items-center justify-center text-white text-xs font-black uppercase">Click To Call</div>
+                         
+                         <div className="space-y-4 mb-10">
+                            <div className="h-2 w-full bg-gray-100 rounded"></div>
+                            <div className="h-2 w-5/6 bg-gray-100 rounded"></div>
+                            <div className="h-2 w-4/6 bg-gray-100 rounded"></div>
+                         </div>
+                         
+                         <div className="bg-brand-light p-6 rounded-2xl border border-gray-200">
+                            <div className="flex gap-2 text-brand-gold mb-3">
+                               {[...Array(5)].map((_, i) => <Icons.Star key={i} size={12} fill="currentColor" />)}
+                            </div>
+                            <div className="h-2 w-1/2 bg-gray-300 rounded"></div>
+                         </div>
+                      </div>
+                      {/* Annotations */}
+                      <div className="absolute top-[10%] -right-10 bg-white p-4 rounded-2xl shadow-xl border-l-4 border-brand-red animate-bounce max-w-[150px]">
+                         <span className="text-[10px] font-black text-brand-navy uppercase block mb-1">Conversion Point</span>
+                         <p className="text-[9px] text-gray-500 leading-tight">Sticky Click-to-Call follows the user everywhere.</p>
+                      </div>
+                      <div className="absolute bottom-[20%] -left-10 bg-white p-4 rounded-2xl shadow-xl border-l-4 border-brand-gold max-w-[150px]">
+                         <span className="text-[10px] font-black text-brand-navy uppercase block mb-1">Trust Signal</span>
+                         <p className="text-[9px] text-gray-500 leading-tight">Dynamic local reviews stacked at the point of action.</p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             
+             <div className="order-1 lg:order-2 space-y-12">
+                <div className="space-y-4">
+                   <h3 className="text-3xl font-black text-brand-navy">Built-In Trust Stacking</h3>
+                   <p className="text-gray-600 font-medium text-lg leading-relaxed">Customers in 2024 don't trust claims. They trust proof. We integrate your Google and Facebook reviews directly into the sales path, updating in real-time as you win more business.</p>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                   <div className="space-y-3">
+                      <Icons.Shield className="text-brand-red" size={32} />
+                      <h4 className="font-black text-brand-navy uppercase tracking-tighter">Authority Badge</h4>
+                      <p className="text-sm text-gray-500">We design custom trade badges (e.g., "5-Star Local Pro") that establish your territory dominance.</p>
+                   </div>
+                   <div className="space-y-3">
+                      <Icons.Users className="text-brand-red" size={32} />
+                      <h4 className="font-black text-brand-navy uppercase tracking-tighter">Human Element</h4>
+                      <p className="text-sm text-gray-500">Professional photography optimization that shows the faces behind the brand, building instant rapport.</p>
+                   </div>
+                </div>
+                
+                <div className="pt-8 border-t border-gray-100">
+                   <div className="flex flex-wrap gap-4 items-center">
+                      <span className="text-xs font-black uppercase text-gray-400 tracking-widest mr-4">Integrates With Your Tech:</span>
+                      <div className="px-4 py-2 bg-brand-light rounded-xl font-black text-gray-400 text-xs grayscale hover:grayscale-0 transition-all">ServiceTitan</div>
+                      <div className="px-4 py-2 bg-brand-light rounded-xl font-black text-gray-400 text-xs grayscale hover:grayscale-0 transition-all">Jobber</div>
+                      <div className="px-4 py-2 bg-brand-light rounded-xl font-black text-gray-400 text-xs grayscale hover:grayscale-0 transition-all">Housecall Pro</div>
+                   </div>
+                </div>
+             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Funnels Section */}
-      <section className="py-24 bg-brand-light">
-        <div className="container mx-auto px-4">
-           <div className="bg-brand-navy rounded-[3rem] p-12 md:p-20 text-white flex flex-col lg:flex-row gap-16 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
-                 <Icons.Layout className="w-full h-full scale-150" />
-              </div>
-              <div className="lg:w-1/2 relative z-10">
-                 <h2 className="text-4xl font-black mb-6">Website vs. <span className="text-brand-red">Sales Funnel</span></h2>
-                 <p className="text-xl text-gray-400 mb-10 leading-relaxed">
-                   A website is a directory. A funnel is a pathway. We build specific landing pages for your most profitable services (e.g., "Full Roof Replacement"). 
-                 </p>
-                 <div className="grid grid-cols-2 gap-8 mb-10">
-                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                      <span className="block text-brand-gold font-black text-2xl mb-2">2-5%</span>
-                      <span className="text-xs text-gray-400 font-bold uppercase tracking-wider">Avg Website Conv.</span>
-                   </div>
-                   <div className="bg-brand-red/10 p-6 rounded-2xl border border-brand-red/20">
-                      <span className="block text-brand-red font-black text-2xl mb-2">15-30%</span>
-                      <span className="text-xs text-red-200 font-bold uppercase tracking-wider">LBM Funnel Conv.</span>
-                   </div>
-                 </div>
-                 <Button onClick={openBookDemo} size="lg" className="bg-brand-red">I Need This Funnel</Button>
-              </div>
-              <div className="lg:w-1/2 relative z-10">
-                 <div className="bg-white/5 border border-white/10 p-4 rounded-3xl backdrop-blur-sm">
-                    <img src="https://picsum.photos/600/600?marketing" alt="Funnel Visualization" className="rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
-                 </div>
-              </div>
-           </div>
         </div>
       </section>
     </div>
@@ -571,105 +665,240 @@ export const AutomationPage: React.FC = () => {
   const { openBookDemo } = useModals();
 
   return (
-    <div className="pt-24 pb-20 overflow-hidden">
-      {/* Hero */}
-      <section className="bg-brand-navy py-24 text-white relative">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-red/20 text-brand-red border border-brand-red/30 text-xs font-black uppercase tracking-widest mb-6">
-            AI Workforce
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight">
-            The Employee That <span className="text-brand-red">Never Sleeps</span>
+    <div className="pt-24 pb-20 overflow-hidden bg-white">
+      {/* Hero Section */}
+      <section className="bg-brand-navy py-32 text-white relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#E5393515_0%,transparent_70%)]"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Badge variant="gold" className="mb-6 shadow-xl shadow-brand-gold/10">The 24/7 AI Workforce</Badge>
+          {/* HEADING PRESERVED EXACTLY AS REQUESTED */}
+          <h1 className="text-4xl md:text-8xl font-black mb-8 leading-[1.05] tracking-tighter max-w-5xl mx-auto">
+            Scale Your Service <br className="hidden md:block" />
+            <span className="text-brand-gold">Without Hiring</span> A Soul
           </h1>
-          <p className="max-w-3xl mx-auto text-xl text-gray-300 mb-10 leading-relaxed">
-            Every missed call is a missed job. Our AI Voice and SMS systems engage your leads instantly, qualify them, and book them onto your calendar—even at 3 AM.
+          <p className="max-w-3xl mx-auto text-xl md:text-2xl text-blue-100/70 mb-12 leading-relaxed">
+            Every missed call is a missed mortgage payment. Our AI systems engage your leads instantly, qualify them on autopilot, and fill your calendar—even at 3 AM.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" onClick={openBookDemo} className="bg-brand-red shadow-[0_10px_30px_rgba(229,57,53,0.3)]">Get My AI Agent</Button>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-12 shadow-2xl shadow-brand-red/30">
+              Get My AI Agent
+            </Button>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white hover:text-brand-navy px-12">
+              Calculate Lost Revenue
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Missed Call Text-Back Demo Scenario */}
-      <section className="py-24 bg-white">
+      {/* The Speed-to-Lead Deep Dive */}
+      <section className="py-28 bg-white border-b border-gray-50">
         <div className="container mx-auto px-4">
-          <SectionHeading 
-            title="The 5-Second Response Rule" 
-            subtitle="The business that responds first wins the job 78% of the time. We make sure you're ALWAYS first." 
-          />
-          <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-stretch">
-            <div className="flex-1 bg-brand-light rounded-[2rem] p-8 border border-gray-200">
-               <h4 className="font-black text-brand-navy mb-6 text-center uppercase tracking-widest text-sm">Customer Perspective</h4>
-               <div className="space-y-4">
-                  <div className="bg-gray-200 p-4 rounded-2xl rounded-bl-none max-w-[80%] text-sm">
-                    "Hey, I have a burst pipe in the basement. Can you come today?"
-                  </div>
-                  <div className="text-[10px] text-gray-400 font-bold ml-2">Delivered • 2:14 PM</div>
-                  <div className="bg-brand-navy p-4 rounded-2xl rounded-br-none max-w-[80%] ml-auto text-sm text-white font-bold shadow-xl border-l-4 border-brand-red">
-                    "Hey! This is the Local Boss Marketing Plumbing AI. We just missed your call. I'm so sorry! Can you tell me your address so I can check our schedule?"
-                  </div>
-                  <div className="text-[10px] text-brand-red font-black text-right mr-2">Sent via AI Text-Back • 2:14 PM (Instant)</div>
-               </div>
-            </div>
-            <div className="flex-1 bg-brand-navy rounded-[2rem] p-8 text-white flex flex-col justify-center">
-               <div className="text-brand-gold font-black text-4xl mb-4">$350 - $2,500</div>
-               <p className="text-gray-400 mb-8 leading-relaxed">
-                 That's the average value of a job saved by <span className="text-white font-bold">Missed-Call Text Back</span>. If you miss just one call a week, our system pays for itself 10x over.
-               </p>
-               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-brand-navy" onClick={openBookDemo}>Calculate Your Lost Revenue</Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Voice AI Deep Dive */}
-      <section className="py-24 bg-brand-light">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl font-black text-brand-navy mb-8 leading-tight">Human-Like <span className="text-brand-red">Voice AI</span> Receptionists</h2>
-              <p className="text-lg text-gray-600 mb-10">
-                Forget robotic IVRs. Our voice agents sound like real people, understand complex questions, and can handle booking directly into your ServiceTitan, Housecall Pro, or Google Calendar.
-              </p>
-              <div className="space-y-6">
-                {[
-                  "Answer calls while you're on a ladder or under a sink.",
-                  "Filter out telemarketers and spam instantly.",
-                  "Confirm appointments and send automated reminders.",
-                  "Collect initial job details and photos via text follow-up."
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-center">
-                    <div className="w-6 h-6 bg-brand-red rounded-full flex items-center justify-center text-white">
-                      <Icons.Check size={14} />
-                    </div>
-                    <span className="font-bold text-brand-navy">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-               <Card className="p-8 border-0 shadow-2xl rounded-[3rem] bg-white">
-                  <div className="flex items-center gap-4 mb-8">
-                     <div className="w-12 h-12 bg-brand-navy rounded-full flex items-center justify-center text-brand-gold">
-                        <Icons.Mic size={24} />
+              <SectionHeading 
+                align="left"
+                badge="The Technical Advantage"
+                title={<>The Science of <span className='text-brand-red italic'>Speed-to-Lead</span></>}
+                subtitle="78% of customers buy from the company that responds first. If your AI isn't answering the call, your competitor is."
+              />
+              <div className="space-y-10">
+                 {[
+                   { 
+                     t: "Missed-Call Text Back 2.0", 
+                     d: "Standard text-backs are just apologies. Ours are logic-engines. They detect the intent of the call and trigger a custom booking sequence based on the urgency of the job.",
+                     icon: <Icons.MessageCircle />
+                   },
+                   { 
+                     t: "Natural Language Voice AI", 
+                     d: "Our voice agents don't sound like robots. They use advanced NLP (Natural Language Processing) to handle common objections and schedule jobs directly into your CRM.",
+                     icon: <Icons.Mic />
+                   },
+                   { 
+                     t: "Multilingual Engagement", 
+                     d: "Capture leads in the language your customer speaks. Our AI handles Spanish, French, and English fluently to broaden your market reach.",
+                     icon: <Icons.Layout />
+                   }
+                 ].map((item, i) => (
+                   <div key={i} className="flex gap-6 items-start">
+                     <div className="w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center text-brand-red shrink-0 shadow-sm border border-brand-red/10">
+                        {item.icon}
                      </div>
                      <div>
-                        <span className="block text-[10px] font-black uppercase text-gray-400 tracking-widest">Active Call</span>
-                        <span className="text-lg font-black text-brand-navy">AI Receptionist Core</span>
+                       <h4 className="text-xl font-black text-brand-navy mb-2 leading-tight">{item.t}</h4>
+                       <p className="text-gray-500 font-medium leading-relaxed text-sm">{item.d}</p>
                      </div>
-                  </div>
-                  <div className="space-y-6">
-                     <div className="flex gap-3">
-                        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center shrink-0">C</div>
-                        <div className="text-sm bg-gray-50 p-4 rounded-2xl rounded-tl-none border">"Do you guys do emergency HVAC repair in Casper?"</div>
-                     </div>
-                     <div className="flex gap-3 flex-row-reverse">
-                        <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center shrink-0 text-white text-xs font-black">AI</div>
-                        <div className="text-sm bg-brand-navy text-white p-4 rounded-2xl rounded-tr-none shadow-lg">"Yes we do! We have a technician available at 4 PM today. Should I put you on the schedule?"</div>
-                     </div>
-                  </div>
-               </Card>
+                   </div>
+                 ))}
+              </div>
             </div>
+            <div className="lg:w-1/2 w-full relative">
+               <div className="absolute -inset-10 bg-brand-light rounded-[5rem] -z-10 rotate-3"></div>
+               <div className="bg-white p-12 rounded-[4rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="mb-10 border-b border-gray-50 pb-8 flex items-center justify-between">
+                     <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-brand-red animate-pulse"></div>
+                        <span className="text-[10px] font-black uppercase text-gray-400 tracking-widest">AI Decision Engine Live</span>
+                     </div>
+                     <Badge variant="navy">LOW LATENCY</Badge>
+                  </div>
+                  
+                  {/* Decision Tree Simulation */}
+                  <div className="space-y-6">
+                     <div className="p-4 bg-brand-navy rounded-2xl text-white text-xs font-bold border-l-4 border-brand-gold ml-0 max-w-[80%]">
+                        Inbound Call: 12:44:01 PM (Unanswered)
+                     </div>
+                     <div className="w-px h-6 bg-gray-200 mx-8"></div>
+                     <div className="p-4 bg-brand-red rounded-2xl text-white text-xs font-bold border-l-4 border-white ml-8 max-w-[80%]">
+                        Action: Trigger Missed-Call Text Back (12:44:03 PM)
+                     </div>
+                     <div className="w-px h-6 bg-gray-200 mx-16"></div>
+                     <div className="p-4 bg-white border border-gray-200 rounded-2xl text-gray-600 text-xs font-bold ml-16 max-w-[80%]">
+                        "Hey! It's Joe from ABC HVAC. Sorry I missed you. Is this an AC emergency?"
+                     </div>
+                     <div className="w-px h-6 bg-gray-200 mx-24"></div>
+                     <div className="p-4 bg-green-500 rounded-2xl text-white text-xs font-bold border-l-4 border-white ml-24 max-w-[80%]">
+                        Customer: "YES! Unit is smoking." -> AI QUALIFIED AS URGENT
+                     </div>
+                  </div>
+                  
+                  <div className="mt-12 p-6 bg-brand-navy rounded-3xl text-center">
+                     <p className="text-white font-black text-sm uppercase tracking-tighter">Total Response Time: <span className="text-brand-gold">1.8 Seconds</span></p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Database Reactivation Framework */}
+      <section className="py-28 bg-brand-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center mb-20">
+            <Badge variant="white" className="mb-6">The Profit Engine</Badge>
+            <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
+              Database Reactivation: <br />
+              <span className="text-brand-gold italic">The Revenue Faucet</span>
+            </h2>
+            <p className="text-xl text-blue-100/70 max-w-2xl mx-auto">
+              You're sitting on a goldmine of past customers and leads. Our AI campaigns mine that data to fill your schedule during slow seasons without a cent in ad spend.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+             {[
+               { t: "Deep Sync", d: "We pull all past leads from your CRM into our secure AI sandbox.", icon: <Icons.Zap /> },
+               { t: "Intent Filtering", d: "AI analyzes past job history to target only high-likelihood repeat customers.", icon: <Icons.Shield /> },
+               { t: "Nurture Loops", d: "Automated, non-spammy SMS sequences that re-start conversations.", icon: <Icons.MessageCircle /> },
+               { t: "Auto-Booking", d: "Interested leads are qualified and pushed directly back into your schedule.", icon: <Icons.Calendar /> }
+             ].map((item, i) => (
+               <Card key={i} className="bg-white/5 border border-white/10 p-10 group hover:bg-brand-red/10 transition-colors duration-500 rounded-[3rem] relative flex flex-col h-full">
+                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center text-brand-navy font-black shadow-xl group-hover:scale-110 transition-transform">
+                    {i+1}
+                  </div>
+                  <div className="text-brand-gold mb-6 group-hover:text-white transition-colors">{item.icon}</div>
+                  <h4 className="text-xl font-black mb-4">{item.t}</h4>
+                  <p className="text-sm text-blue-100/60 leading-relaxed font-medium flex-1">{item.d}</p>
+               </Card>
+             ))}
+          </div>
+          
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl mx-auto">
+             {[
+               { l: "Setup Time", v: "24 Hours" },
+               { l: "Average ROI", v: "1,200%+" },
+               { l: "Lead Cost", v: "$0.00" },
+               { l: "Efficiency", v: "100%" }
+             ].map((stat, i) => (
+               <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md text-center">
+                  <span className="block text-3xl font-black text-brand-gold mb-1">{stat.v}</span>
+                  <span className="text-[10px] uppercase font-black text-gray-400 tracking-widest">{stat.l}</span>
+               </div>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CRM Technical Integrations */}
+      <section className="py-28 bg-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title={<>Plugs Into Your <span className="text-brand-red">Existing Workflow</span></>}
+            subtitle="Our AI doesn't work in a vacuum. It integrates directly with the software you already use to run your crews."
+          />
+          
+          <div className="flex flex-wrap justify-center items-center gap-12 max-w-5xl mx-auto opacity-60">
+             {["ServiceTitan", "Jobber", "Housecall Pro", "QuickBooks", "Zapier", "FieldEdge", "Google Calendar"].map((tech) => (
+               <div key={tech} className="px-10 py-6 bg-brand-light rounded-3xl border border-gray-100 font-black text-brand-navy/30 text-2xl grayscale hover:grayscale-0 hover:text-brand-red hover:bg-white transition-all cursor-default shadow-sm hover:shadow-xl">
+                  {tech}
+               </div>
+             ))}
+          </div>
+          
+          <div className="mt-28 grid md:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+             <div className="relative group">
+                <div className="absolute -inset-4 bg-brand-red/5 rounded-[3rem] blur-2xl group-hover:bg-brand-red/10 transition-colors"></div>
+                <div className="relative bg-white border border-gray-100 p-12 rounded-[2.5rem] shadow-xl">
+                   <h4 className="text-2xl font-black text-brand-navy mb-8 flex items-center gap-3">
+                      <Icons.Shield className="text-brand-red" size={24} />
+                      Zero Data Entry Manuals
+                   </h4>
+                   <p className="text-gray-600 font-medium leading-relaxed mb-8">
+                      When our AI books an appointment, it creates the customer profile, attaches the call transcript, and notes the job type directly in your CRM. Your dispatcher only has to hit "Confirm."
+                   </p>
+                   <div className="flex gap-4">
+                      <Badge variant="navy">BI-DIRECTIONAL SYNC</Badge>
+                      <Badge variant="gold">256-BIT ENCRYPTION</Badge>
+                   </div>
+                </div>
+             </div>
+             
+             <div className="space-y-12">
+                <div className="space-y-4">
+                   <h3 className="text-3xl font-black text-brand-navy">Scaling Human Talent</h3>
+                   <p className="text-gray-600 font-medium text-lg leading-relaxed">
+                      Stop using your highest-paid employees to answer basic questions or chase cold leads. Our AI handles 90% of the "noise," freeing your team to focus on production and profit.
+                   </p>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                   <div className="space-y-3">
+                      <Icons.Zap className="text-brand-red" size={32} />
+                      <h4 className="font-black text-brand-navy uppercase tracking-tighter">Scale at 3 AM</h4>
+                      <p className="text-sm text-gray-500 font-medium">Handle a burst of 100 emergency calls simultaneously without crashing or hiring temp staff.</p>
+                   </div>
+                   <div className="space-y-3">
+                      <Icons.Bot className="text-brand-red" size={32} />
+                      <h4 className="font-black text-brand-navy uppercase tracking-tighter">Perfect Recall</h4>
+                      <p className="text-sm text-gray-500 font-medium">AI remembers every detail from every conversation, ensuring nothing falls through the cracks.</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Conversion CTA */}
+      <section className="py-28 bg-brand-light relative">
+        <div className="container mx-auto px-4 text-center">
+           <div className="max-w-4xl mx-auto bg-white p-12 md:p-32 rounded-[5rem] shadow-2xl relative overflow-hidden border border-gray-100 group">
+             <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-1000">
+               <Icons.Bot size={300} />
+             </div>
+             <div className="relative z-10">
+                <h2 className="text-4xl md:text-7xl font-black text-brand-navy mb-8 leading-tight tracking-tighter">
+                  Stop Being The <br />
+                  <span className="text-brand-red italic">Answering Service.</span>
+                </h2>
+                <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+                  You didn't start your business to answer phones all day. Let's install the workforce that never sleeps, never complains, and always closes the deal.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-6">
+                   <Button size="lg" onClick={openBookDemo} className="bg-brand-navy text-white px-16 shadow-2xl hover:bg-slate-800 transform hover:scale-105">
+                     Book My AI Strategy Audit
+                   </Button>
+                </div>
+             </div>
           </div>
         </div>
       </section>
@@ -682,122 +911,424 @@ export const ReputationPage: React.FC = () => {
   const { openBookDemo } = useModals();
 
   return (
-    <div className="pt-24 pb-20 overflow-hidden">
-      {/* Hero */}
-      <section className="bg-brand-navy py-24 text-white relative">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-red/20 text-brand-red border border-brand-red/30 text-xs font-black uppercase tracking-widest mb-6">
-            Reputation Engine
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight">
-            The Power Of <span className="text-brand-red">Social Proof</span>
+    <div className="pt-24 pb-20 overflow-hidden bg-white">
+      {/* Hero Section */}
+      <section className="bg-brand-navy py-32 text-white relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#E5393520_0%,transparent_50%)]"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <Badge variant="gold" className="mb-6 shadow-xl shadow-brand-gold/10">Reputation Management 2.0</Badge>
+          {/* HEADING PRESERVED EXACTLY AS REQUESTED */}
+          <h1 className="text-4xl md:text-8xl font-black mb-8 leading-[1.05] tracking-tighter max-w-5xl mx-auto">
+            Winning The Job Before <br className="hidden md:block" />
+            <span className="text-brand-gold">The Phone Even Rings</span>
           </h1>
-          <p className="max-w-3xl mx-auto text-xl text-gray-300 mb-10 leading-relaxed">
-            If you have 10 reviews and your competitor has 100, the customer will hire them 9 times out of 10. We automate your 5-star reviews so you never have to ask for a review again.
+          <p className="max-w-3xl mx-auto text-xl md:text-2xl text-blue-100/70 mb-12 leading-relaxed font-medium">
+            In the local service industry, your 5-star rating isn't a "nice to have"—it's an economic force. We build the <span className="text-white font-black underline decoration-brand-red decoration-4">Automated Trust Engine</span> that makes you the only logical choice in your city.
           </p>
-          <Button size="lg" onClick={openBookDemo} className="bg-brand-red">Automate My Reviews</Button>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-12 shadow-2xl shadow-brand-red/30">
+              Automate My Reviews
+            </Button>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white hover:text-brand-navy px-12">
+              See The Trust Audit
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* The Feedback Loop */}
-      <section className="py-24 bg-white">
+      {/* The Choice Section (Simulation) */}
+      <section className="py-28 bg-brand-light border-b border-gray-100">
         <div className="container mx-auto px-4">
-           <SectionHeading title="How The Trust Engine Works" subtitle="A hands-off system that collects 5-star reviews from every happy client." />
-           <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-              {[
-                { 
-                  title: "Instant Text Request", 
-                  desc: "As soon as the job is marked complete in your CRM, our system sends a personalized SMS: 'How did we do?'",
-                  icon: Icons.MessageCircle 
-                },
-                { 
-                  title: "Smart Filtering", 
-                  desc: "Happy customers are sent to Google/Facebook. Unhappy ones are sent to a private form so you can resolve it first.",
-                  icon: Icons.Shield 
-                },
-                { 
-                  title: "Auto-Publishing", 
-                  desc: "New 5-star reviews are instantly streamed to your website as social proof pop-ups that close new leads.",
-                  icon: Icons.Zap 
-                }
-              ].map((step, i) => (
-                <div key={i} className="relative group">
-                  <div className="bg-brand-light p-10 rounded-[2.5rem] h-full border border-gray-100 hover:border-brand-red transition-all duration-500 hover:-translate-y-2">
-                     <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-brand-red mb-8 shadow-sm group-hover:bg-brand-red group-hover:text-white transition-colors duration-500">
-                        <step.icon size={32} />
-                     </div>
-                     <h4 className="text-2xl font-black text-brand-navy mb-4">{step.title}</h4>
-                     <p className="text-gray-600 leading-relaxed">{step.desc}</p>
-                  </div>
-                  {i < 2 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-6 -translate-y-1/2 text-gray-200">
-                       <Icons.ArrowRight size={32} />
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div className="lg:w-1/2">
+              <SectionHeading 
+                align="left"
+                badge="The Consumer Choice"
+                title={<>The Invisible Cost of a <span className="text-brand-red italic">Weak</span> Online Profile</>}
+                subtitle="Customers make a decision in 0.5 seconds. If you don't have the 'Badge of Authority,' you're donating your leads to your competitor every single morning."
+              />
+              <div className="bg-white p-8 rounded-[2.5rem] border-l-8 border-brand-red shadow-xl mb-10">
+                <p className="text-xl font-bold text-brand-navy italic mb-4">"Wait, I have great reviews!"</p>
+                <p className="text-gray-600 leading-relaxed">
+                  Having 10 reviews when your rival has 250 makes you look like a hobbyist. In the customer's mind, <span className="text-brand-navy font-black">Quantity = Reliability.</span> We close that gap on autopilot.
+                </p>
+              </div>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <div className="bg-white p-10 rounded-[4rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="space-y-8">
+                  {/* Competitor Listing */}
+                  <div className="p-8 bg-brand-navy rounded-[2rem] border border-white/10 shadow-2xl transform hover:scale-[1.02] transition-transform duration-300">
+                    <div className="flex justify-between items-start mb-3">
+                      <h4 className="font-black text-white text-xl">Top Rated Competitor</h4>
+                      <Badge variant="gold" className="text-[9px]">MARKET LEADER</Badge>
                     </div>
-                  )}
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="flex text-brand-gold">
+                        {[...Array(5)].map((_, i) => <Icons.Star key={i} size={16} fill="currentColor" />)}
+                      </div>
+                      <span className="text-sm font-black text-white">4.9 <span className="text-white/40 ml-1">(482 Reviews)</span></span>
+                    </div>
+                    <div className="h-2 bg-white/5 rounded-full w-full">
+                       <div className="h-full bg-brand-gold w-full rounded-full"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Visual Gap */}
+                  <div className="flex items-center justify-center py-2 relative">
+                    <div className="h-px bg-gray-100 flex-1"></div>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                       <div className="bg-brand-red text-white text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg animate-pulse uppercase tracking-widest">The Profit Gap</div>
+                    </div>
+                    <div className="h-px bg-gray-100 flex-1"></div>
+                  </div>
+
+                  {/* Your Business Listing */}
+                  <div className="p-8 bg-gray-50 rounded-[2rem] border border-gray-100 opacity-60 grayscale hover:grayscale-0 transition-all cursor-not-allowed">
+                    <div className="flex justify-between items-start mb-3">
+                      <h4 className="font-bold text-gray-500 text-xl">Your Business Today</h4>
+                    </div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="flex text-gray-300">
+                        {[...Array(4)].map((_, i) => <Icons.Star key={i} size={16} fill="currentColor" />)}
+                        <Icons.Star size={16} />
+                      </div>
+                      <span className="text-sm font-bold text-gray-400">4.1 <span className="text-gray-400/40 ml-1">(14 Reviews)</span></span>
+                    </div>
+                    <div className="h-2 bg-gray-200 rounded-full w-full overflow-hidden">
+                       <div className="h-full bg-brand-red w-[25%] rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
-              ))}
-           </div>
+                <div className="mt-10 text-center">
+                  <p className="text-brand-red font-black text-sm uppercase tracking-tighter">94% of users will call the top result immediately.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Trust Comparison */}
-      <section className="py-24 bg-brand-navy text-white overflow-hidden relative">
+      {/* The 4-Pillar Trust Cycle */}
+      <section className="py-28 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title={<>The Automated <span className="text-brand-red italic">Trust Cycle</span></>}
+            subtitle="Most contractors fail at reviews because they forget to ask. Our system never forgets, never hesitates, and never misses a happy customer."
+          />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {[
+              { 
+                t: "CRM-Sync Trigger", 
+                d: "The moment you finish a job in ServiceTitan, Housecall Pro, or Jobber, the system pings the customer with a personalized text.",
+                icon: <Icons.Zap />,
+                color: "bg-blue-600"
+              },
+              { 
+                t: "Intelligent Filtering", 
+                d: "Happy clients go to Google. Unhappy ones are routed to a private feedback form for immediate resolution before they can post publicly.",
+                icon: <Icons.Shield />,
+                color: "bg-brand-navy"
+              },
+              { 
+                t: "Review Syndication", 
+                d: "New 5-star reviews are instantly published as live 'Trust Notifications' on your website to close new visitors.",
+                icon: <Icons.Layout />,
+                color: "bg-brand-gold"
+              },
+              { 
+                t: "Ranking Feedback", 
+                d: "Google sees the 'Review Velocity' and pushes you to the top of the Map Pack, bringing you even more business.",
+                icon: <Icons.Chart />,
+                color: "bg-brand-red"
+              }
+            ].map((step, i) => (
+              <Card key={i} className="group hover:-translate-y-2 transition-all p-10 border-0 shadow-2xl relative overflow-hidden bg-brand-light flex flex-col h-full">
+                <div className="absolute -right-4 -top-4 text-9xl font-black text-white/40 group-hover:text-brand-red/5 transition-colors">{i+1}</div>
+                <div className={`w-16 h-16 ${step.color} rounded-2xl flex items-center justify-center text-white mb-8 shadow-lg group-hover:scale-110 transition-transform relative z-10`}>
+                  {step.icon}
+                </div>
+                <h4 className="text-2xl font-black text-brand-navy mb-4 leading-tight relative z-10">{step.t}</h4>
+                <p className="text-sm text-gray-600 font-medium leading-relaxed relative z-10 flex-1">{step.d}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ROI & Authority Section */}
+      <section className="py-28 bg-brand-navy text-white overflow-hidden relative">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
-           <div className="flex flex-col lg:flex-row gap-16 items-center">
-              <div className="lg:w-1/2">
-                 <h2 className="text-4xl font-black mb-8 leading-tight">Own Your Local Market Authority</h2>
-                 <p className="text-xl text-gray-400 mb-10 leading-relaxed">
-                   In the service industry, reviews are currency. A business with 500 reviews can charge <span className="text-white font-bold">20-30% more</span> than one with 20 reviews. People pay for the peace of mind that comes with a proven track record.
-                 </p>
-                 <div className="space-y-4">
-                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center gap-6">
-                       <Icons.Chart className="text-brand-gold" size={40} />
+          <div className="flex flex-col lg:flex-row items-center gap-20 max-w-7xl mx-auto">
+            <div className="lg:w-1/2">
+               <Badge variant="white" className="mb-8">Economic Authority</Badge>
+               <h2 className="text-4xl md:text-7xl font-black mb-8 leading-tight tracking-tighter">
+                  Convert Trust <br />
+                  Into <span className="text-brand-gold italic">Deposits.</span>
+               </h2>
+               <p className="text-xl text-blue-100/70 mb-10 leading-relaxed">
+                  Moving from a 3.8 to a 4.8 star rating on Google isn't about vanity—it's about volume. Businesses with a 4.5+ rating experience an average <span className="text-white font-black underline decoration-brand-red decoration-4">revenue boost of 44%</span> within 90 days.
+               </p>
+               <div className="space-y-6">
+                  {[
+                    "Review velocity is the #1 organic signal for GMB ranking.",
+                    "92% of local leads read your reviews before clicking 'Call'.",
+                    "Automated loops increase response rates by 340% over manual asking."
+                  ].map((text, i) => (
+                    <div key={i} className="flex gap-4 items-center">
+                       <div className="w-6 h-6 rounded-full bg-brand-gold flex items-center justify-center shrink-0">
+                          <Icons.Check className="text-brand-navy" size={14} />
+                       </div>
+                       <span className="font-bold text-blue-100/90">{text}</span>
+                    </div>
+                  ))}
+               </div>
+            </div>
+            
+            <div className="lg:w-1/2 w-full">
+               <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white/5 border border-white/10 p-10 rounded-[3rem] backdrop-blur-xl group hover:bg-brand-red/10 transition-colors">
+                     <div className="text-brand-gold mb-4 group-hover:scale-110 transition-transform"><Icons.Star size={40} fill="currentColor" /></div>
+                     <div className="text-4xl font-black mb-1">+240%</div>
+                     <div className="text-[10px] uppercase font-black text-gray-400 tracking-widest">Review Growth</div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 p-10 rounded-[3rem] backdrop-blur-xl group hover:bg-brand-red/10 transition-colors">
+                     <div className="text-brand-red mb-4 group-hover:scale-110 transition-transform"><Icons.Zap size={40} /></div>
+                     <div className="text-4xl font-black mb-1">-90%</div>
+                     <div className="text-[10px] uppercase font-black text-gray-400 tracking-widest">Manual Effort</div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 p-10 rounded-[3rem] backdrop-blur-xl group hover:bg-brand-red/10 transition-colors">
+                     <div className="text-blue-400 mb-4 group-hover:scale-110 transition-transform"><Icons.Shield size={40} /></div>
+                     <div className="text-4xl font-black mb-1">99.2%</div>
+                     <div className="text-[10px] uppercase font-black text-gray-400 tracking-widest">Positive Sentiment</div>
+                  </div>
+                  <div className="bg-brand-red p-10 rounded-[3rem] shadow-2xl shadow-brand-red/20 transform hover:-rotate-2 transition-transform">
+                     <div className="text-white mb-4"><Icons.Chart size={40} /></div>
+                     <div className="text-4xl font-black mb-1">1.5x</div>
+                     <div className="text-[10px] uppercase font-black text-red-100 tracking-widest">Lead Close Rate</div>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The 1-Star Firewall Section */}
+      <section className="py-28 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <SectionHeading 
+            title={<>The <span className="text-brand-red">1-Star</span> Firewall</>}
+            subtitle="Bad days happen to good businesses. Our system captures negative feedback before it hits Google, giving you a chance to make it right and save your reputation."
+          />
+          
+          <div className="relative p-10 lg:p-20 bg-brand-light rounded-[5rem] shadow-inner border border-gray-100 flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/3 flex justify-center">
+               <div className="w-56 h-56 rounded-full bg-white flex items-center justify-center text-brand-red relative shadow-2xl group">
+                  <div className="absolute inset-0 border-8 border-brand-red/10 rounded-full animate-[ping_3s_ease-in-out_infinite]"></div>
+                  <div className="absolute inset-0 border-4 border-brand-red border-dashed rounded-full animate-[spin_20s_linear_infinite]"></div>
+                  <Icons.Shield size={96} className="relative z-10 group-hover:scale-110 transition-transform duration-500" />
+               </div>
+            </div>
+            
+            <div className="lg:w-2/3">
+               <h4 className="text-3xl font-black text-brand-navy mb-6">Service Recovery Protocol</h4>
+               <p className="text-lg text-gray-600 mb-10 leading-relaxed font-medium">
+                  When a customer clicks 1, 2, or 3 stars on your automated text, they aren't taken to Google. Instead, they land on a <span className="text-brand-red font-black">Private Feedback Portal</span> that pings your cell phone immediately.
+               </p>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                  {[
+                    { t: "Instant Alerts", d: "Resolve the issue while the customer is still hot." },
+                    { t: "Private Recovery", d: "Kill the bad review before it stains your record." },
+                    { t: "Sentiment Defense", d: "Maintain a flawless 4.8+ public star rating." },
+                    { t: "Direct Support", d: "Show customers you care about their experience." }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4">
+                       <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-green-500 shadow-sm shrink-0">
+                          <Icons.Check size={20} />
+                       </div>
                        <div>
-                          <span className="block font-black text-brand-gold text-2xl">+280%</span>
-                          <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Average Review Growth</span>
+                          <h5 className="font-black text-brand-navy text-sm uppercase mb-1 tracking-tighter">{item.t}</h5>
+                          <p className="text-xs text-gray-500 leading-tight">{item.d}</p>
                        </div>
                     </div>
-                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 flex items-center gap-6">
-                       <Icons.Users className="text-brand-red" size={40} />
-                       <div>
-                          <span className="block font-black text-brand-red text-2xl">92%</span>
-                          <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Consumers trust local reviews</span>
-                       </div>
+                  ))}
+               </div>
+               <div className="p-6 bg-brand-navy rounded-3xl text-white inline-block">
+                  <p className="text-sm font-bold flex items-center gap-3">
+                     <Icons.Zap size={16} className="text-brand-gold" />
+                     Your 5-star reputation is your moat. Let's build the wall.
+                  </p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final High-Impact CTA */}
+      <section className="py-28 bg-brand-light relative">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-5xl mx-auto bg-white p-12 md:p-32 rounded-[5rem] shadow-2xl relative overflow-hidden border border-gray-100 group">
+             <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-1000">
+               <Icons.Star size={300} />
+             </div>
+             <div className="relative z-10">
+                <h2 className="text-4xl md:text-7xl font-black text-brand-navy mb-8 leading-tight tracking-tighter">
+                  Stop Stacking Calls. <br />
+                  Start Stacking <span className="text-brand-red italic">Trust.</span>
+                </h2>
+                <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                  Your business is elite. Your online reputation should reflect that. Let's build the engine that proves your authority to every single customer in your city.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-6">
+                   <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-20 shadow-2xl shadow-brand-red/30 transform hover:scale-105">
+                     Claim My Trust Engine
+                   </Button>
+                </div>
+                <div className="mt-16 flex items-center justify-center gap-10 opacity-40">
+                   <div className="flex items-center gap-2">
+                     <Icons.Check size={20} className="text-green-600" />
+                     <span className="text-xs font-black uppercase tracking-widest text-brand-navy">Google & FB Integrated</span>
+                   </div>
+                   <div className="flex items-center gap-2">
+                     <Icons.Check size={20} className="text-green-600" />
+                     <span className="text-xs font-black uppercase tracking-widest text-brand-navy">CRM Auto-Triggers</span>
+                   </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// --- How it Works Page ---
+export const HowItWorksPage: React.FC = () => {
+  const { openBookDemo } = useModals();
+
+  const steps = [
+    {
+      title: "Smart Website Deployment",
+      desc: "We build or update your website to be a lead machine. It looks great on phones, loads fast, and tells customers exactly how to hire you. No confusing fluff.",
+      scenario: "A customer searches 'Plumber near me' at 9 PM. Your site loads instantly and offers a quick 'Get a Quote' button.",
+      icon: <Icons.Layout />,
+      color: "bg-blue-600"
+    },
+    {
+      title: "Automated Instant Replies",
+      desc: "If you're on a ladder or under a car, you can't answer the phone. Our system detects the missed call and sends an immediate friendly text to keep them from calling the next guy.",
+      scenario: "You miss a call while working. The system texts: 'Hey, it's Mark from Doe Plumbing. Sorry I missed you! Can I help with a quote?' Customer replies: 'Yes, leaky sink!'",
+      icon: <Icons.Phone />,
+      color: "bg-brand-red"
+    },
+    {
+      title: "Smart Lead Capture",
+      desc: "Our chat assistant and forms collect names, numbers, and exactly what they need. No more messy voicemails or scribbled notes on napkins.",
+      scenario: "The customer types their info into your site. You get a text notification immediately with their details.",
+      icon: <Icons.MessageCircle />,
+      color: "bg-brand-gold"
+    },
+    {
+      title: "Automatic Follow-Up",
+      desc: "People get busy and forget. Our system sends a gentle reminder if they haven't booked yet, keeping your business top-of-mind without you lifting a finger.",
+      scenario: "The system sends a follow-up text 2 hours later if they haven't booked: 'Still need help with that sink? Just let me know!'",
+      icon: <Icons.Bot />,
+      color: "bg-brand-navy"
+    },
+    {
+      title: "You Close the Deal",
+      desc: "You only spend time talking to people who are qualified and ready to hire you. Your calendar stays full, and your phone stops being a distraction.",
+      scenario: "You check your phone between jobs, see the qualified lead, and call them back to finalize the booking. Deal done.",
+      icon: <Icons.Zap />,
+      color: "bg-green-600"
+    }
+  ];
+
+  return (
+    <div className="pt-24 pb-20 bg-white">
+      {/* Hero */}
+      <section className="bg-brand-navy py-24 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,#E5393520_0%,transparent_50%)]"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <Badge variant="red" className="mb-6">Simplified Growth</Badge>
+          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight tracking-tighter">
+            Simple Steps to <br />
+            <span className="text-brand-red italic">More Customers.</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-xl md:text-2xl text-blue-100/70">
+            We handle the technical setup. You handle the new business. Here is how we get you results from day one.
+          </p>
+        </div>
+      </section>
+
+      {/* Steps List */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="space-y-20">
+            {steps.map((step, i) => (
+              <div key={i} className={`flex flex-col lg:flex-row gap-12 items-start group`}>
+                <div className="shrink-0 w-full lg:w-1/3">
+                  <div className={`w-16 h-16 ${step.color} text-white rounded-2xl flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform`}>
+                    {step.icon}
+                  </div>
+                  <h3 className="text-3xl font-black text-brand-navy mb-4">
+                    <span className="text-brand-red block text-sm font-black uppercase tracking-widest mb-2 opacity-50">Step 0{i + 1}</span>
+                    {step.title}
+                  </h3>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xl text-gray-600 mb-8 leading-relaxed font-medium">
+                    {step.desc}
+                  </p>
+                  <div className="bg-brand-light p-8 rounded-[2.5rem] border-l-8 border-brand-navy shadow-inner relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-5">
+                       <Icons.MessageCircle size={100} />
                     </div>
-                 </div>
+                    <span className="block text-[10px] font-black uppercase tracking-widest text-brand-red mb-3">Real-World Scenario</span>
+                    <p className="text-lg font-bold text-brand-navy leading-relaxed relative z-10">
+                      "{step.scenario}"
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="lg:w-1/2 w-full">
-                 <div className="relative">
-                    <div className="absolute inset-0 bg-brand-red/20 blur-[100px] rounded-full"></div>
-                    <Card className="relative p-10 bg-white border-0 shadow-2xl rounded-[3rem]">
-                       <div className="flex text-brand-gold gap-2 mb-6">
-                          {[...Array(5)].map((芽, i) => <Icons.Star key={i} size={28} fill="currentColor" />)}
-                       </div>
-                       <p className="text-gray-700 text-2xl font-serif italic mb-10 leading-relaxed">
-                         "The automated reviews changed our business. We went from 20 reviews to 180 in just 4 months. Now, when we quote high-ticket jobs, the clients already trust us because they read our reviews."
-                       </p>
-                       <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
-                          <div>
-                             <span className="block font-black text-brand-navy">Jim Masterson</span>
-                             <span className="text-sm text-gray-500 font-bold">Masterson Roofing & Siding</span>
-                          </div>
-                       </div>
-                    </Card>
-                 </div>
-              </div>
-           </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Value Grid */}
+      <section className="py-24 bg-brand-light border-y border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { t: "No Long Contracts", d: "We earn your business every single month with results.", icon: "📜" },
+              { t: "Simple Setup", d: "We do all the heavy lifting. No technical skills required.", icon: "⚡" },
+              { t: "You Stay In Control", d: "It's your business. We just make the website work for you.", icon: "👑" }
+            ].map((val, i) => (
+              <Card key={i} className="text-center p-12 hover:-translate-y-2 transition-transform duration-500 border-0 shadow-xl">
+                <div className="text-6xl mb-6">{val.icon}</div>
+                <h4 className="text-2xl font-black text-brand-navy mb-4">{val.t}</h4>
+                <p className="text-gray-500 font-medium leading-relaxed">{val.d}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-black text-brand-navy mb-6">Your Competitors Are Collecting Reviews. Are You?</h2>
-            <p className="text-xl text-gray-600 mb-10">Stop leaving your reputation to chance. Build a trust engine that scales your business.</p>
-            <Button size="lg" onClick={openBookDemo}>Audit My Reputation</Button>
-          </div>
+      <section className="py-24">
+        <div className="container mx-auto px-4 text-center">
+           <div className="max-w-4xl mx-auto bg-brand-navy p-12 md:p-24 rounded-[4rem] text-white shadow-2xl relative overflow-hidden">
+             <div className="absolute top-0 right-0 p-12 opacity-5">
+               <Icons.Zap size={250} />
+             </div>
+             <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Ready to see it <br /> <span className="text-brand-gold italic">in action?</span></h2>
+             <Button size="lg" onClick={openBookDemo} className="bg-brand-red px-16 shadow-2xl shadow-brand-red/20 transform hover:scale-105">
+               Watch the 2-Minute Demo
+             </Button>
+           </div>
         </div>
       </section>
     </div>
@@ -845,21 +1376,6 @@ export const ResultsPage: React.FC = () => {
         { l: "Contract Value", v: "$58k Avg", change: "+22%" }
       ],
       quote: "Now I only go on quotes for homeowners who are actually ready to sign. The AI filters out the window shoppers for me."
-    },
-    {
-      company: "Rapid HVAC Pros",
-      location: "Jacksonville, FL",
-      industry: "HVAC",
-      img: "https://picsum.photos/800/600?hvac",
-      problem: "Dead schedule during 'shoulder seasons' (Spring/Fall). Zero customer retention strategy.",
-      solution: "AI Database Reactivation campaign messaging 2,000 past customers for maintenance check-ups.",
-      resultTitle: "$85k Revenue in 48 Hours",
-      metrics: [
-        { l: "Booked Jobs", v: "114", change: "Immediate" },
-        { l: "ROI", v: "1,200%", change: "Record High" },
-        { l: "Market Share", v: "#1 Local", change: "GMB Rank" }
-      ],
-      quote: "We filled our entire fall schedule in two days using their AI messaging system. It's like having a faucet for revenue."
     }
   ];
 
@@ -959,33 +1475,6 @@ export const ResultsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Proven Framework */}
-      <section className="py-24 bg-brand-navy text-white">
-        <div className="container mx-auto px-4 text-center">
-          <SectionHeading 
-            title="The Local Boss Marketing Framework" 
-            subtitle="We don't guess. We follow a strict protocol that has worked for hundreds of local service businesses." 
-            light 
-          />
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { t: "Deep Audit", d: "We analyze your GMB, competition, and site performance to find immediate wins." },
-              { t: "Infrastructure", d: "We build your high-conversion funnels and AI text-back systems in 7 days." },
-              { t: "Visibility Surge", d: "Aggressive SEO and Reputation campaigns push you to #1 on Maps." },
-              { t: "Scale Engine", d: "Ongoing optimization and database reactivation keep the schedule full year-round." }
-            ].map((step, i) => (
-              <div key={i} className="relative group">
-                 <div className="text-6xl font-black text-white/5 absolute -top-10 left-1/2 -translate-x-1/2 group-hover:text-brand-red/20 transition-colors">0{i+1}</div>
-                 <div className="relative z-10">
-                    <h4 className="text-xl font-black mb-4">{step.t}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{step.d}</p>
-                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Verified Results CTA */}
       <section className="py-24 bg-white text-center">
         <div className="container mx-auto px-4">
@@ -1003,16 +1492,6 @@ export const ResultsPage: React.FC = () => {
                   <a href="tel:+16072351747">
                      <Button variant="outline" size="lg">Speak to an Expert</Button>
                   </a>
-               </div>
-               <div className="mt-8 flex items-center justify-center gap-6 opacity-60">
-                  <div className="flex items-center gap-2">
-                     <Icons.Check className="text-green-600" size={16} />
-                     <span className="text-xs font-black uppercase text-brand-navy">No Long Term Contracts</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                     <Icons.Check className="text-green-600" size={16} />
-                     <span className="text-xs font-black uppercase text-brand-navy">Exclusive Leads Only</span>
-                  </div>
                </div>
             </div>
           </Card>
@@ -1118,9 +1597,6 @@ export const ServicesPage: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
                <Button size="lg" onClick={openBookDemo}>Start Your Free Audit</Button>
-               <NavLink to="/pricing">
-                 <Button variant="outline" size="lg">Compare Packages</Button>
-               </NavLink>
             </div>
           </div>
         </div>
@@ -1146,28 +1622,6 @@ export const IndustriesPage: React.FC = () => {
       weapon: "Multi-Step Lead Filtering"
     },
     {
-      title: "Storm-Response Roofing",
-      id: "roofing",
-      img: "https://picsum.photos/800/800?roofing",
-      icon: <Icons.Shield size={40} />,
-      hook: "Be the first name they see when the hail hits.",
-      challenge: "Losing storm leads to larger franchises with huge ad budgets.",
-      solution: "Hyper-local GMB dominance and 'Storm Alert' SMS automation to capture neighborhood interest instantly.",
-      kpi: "2x Lead Capture Velocity",
-      weapon: "GMB Map Pack Domination"
-    },
-    {
-      title: "Full-Calendar HVAC",
-      id: "hvac",
-      img: "https://picsum.photos/800/800?air",
-      icon: <Icons.Zap size={40} />,
-      hook: "Kill the 'Shoulder Season' slump forever.",
-      challenge: "The feast-or-famine cycle between extreme weather seasons.",
-      solution: "Database reactivation and membership-model automation that keeps your maintenance schedule full 12 months a year.",
-      kpi: "Full Off-Season Schedule",
-      weapon: "Database Reactivation"
-    },
-    {
       title: "Emergency-Capture Plumbing",
       id: "plumbing",
       img: "https://picsum.photos/800/800?pipe",
@@ -1178,12 +1632,6 @@ export const IndustriesPage: React.FC = () => {
       kpi: "Zero Leads Lost to Voicemail",
       weapon: "Missed Call Text-Back"
     }
-  ];
-
-  const secondaryTrades = [
-    "Electrical Contractors", "Landscaping & Hardscaping", "Solar Installers", "Painting Pros", 
-    "Flooring Specialists", "Commercial Cleaning", "Fencing & Decking", "Pest Control Services",
-    "Pressure Washing", "Window Installation", "Tree Services", "Junk Removal"
   ];
 
   return (
@@ -1235,17 +1683,6 @@ export const IndustriesPage: React.FC = () => {
                          <span className="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">The Growth Blueprint</span>
                          <p className="text-lg text-gray-600 leading-relaxed">{item.solution}</p>
                       </div>
-                      
-                      <div className="grid grid-cols-2 gap-6">
-                         <div className="bg-brand-light p-6 rounded-2xl border border-gray-100">
-                            <span className="block text-[10px] font-black uppercase tracking-widest text-brand-navy mb-1">Target Outcome</span>
-                            <span className="text-lg font-black text-brand-navy">{item.kpi}</span>
-                         </div>
-                         <div className="bg-brand-navy p-6 rounded-2xl">
-                            <span className="block text-[10px] font-black uppercase tracking-widest text-brand-gold mb-1">Primary Weapon</span>
-                            <span className="text-lg font-black text-white">{item.weapon}</span>
-                         </div>
-                      </div>
                    </div>
                    
                    <div className="mt-12">
@@ -1257,50 +1694,6 @@ export const IndustriesPage: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Expanded Industry List */}
-      <section className="py-24 bg-brand-navy text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-           <Icons.Shield size={600} className="absolute -left-40 -bottom-40 rotate-12" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-black mb-6">Also Dominating These Sectors</h2>
-            <p className="text-xl text-gray-400">Our core framework applies to any high-ticket local service business. We adapt the psychology to your specific customer.</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {secondaryTrades.map((trade, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-brand-red/20 hover:border-brand-red transition-all duration-300 group">
-                 <div className="flex items-center justify-between mb-4">
-                    <Icons.Check className="text-brand-red opacity-50 group-hover:opacity-100" size={16} />
-                 </div>
-                 <h4 className="text-lg font-bold">{trade}</h4>
-                 <div className="h-1 w-12 bg-white/10 mt-3 group-hover:bg-brand-red transition-colors"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Custom Growth Call */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-4">
-           <Card className="max-w-4xl mx-auto p-12 md:p-20 bg-brand-light border-0 shadow-2xl rounded-[3rem] overflow-hidden relative">
-              <div className="relative z-10">
-                 <h2 className="text-4xl font-black text-brand-navy mb-6 leading-tight">Don't See Your Trade listed?</h2>
-                 <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-                   If you run a local service business with projects over $1,000, our systems will work for you. Let's build a custom growth blueprint for your specific goals.
-                 </p>
-                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <Button size="lg" onClick={openBookDemo}>Map Out My Custom Blueprint</Button>
-                    <a href="tel:+16072351747">
-                       <Button variant="outline" size="lg">Talk to a Trade Expert</Button>
-                    </a>
-                 </div>
-              </div>
-           </Card>
         </div>
       </section>
     </div>
@@ -1369,39 +1762,6 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* The Origin Story */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
-            <div className="lg:w-1/2">
-              <div className="p-2 bg-brand-light rounded-[3rem] shadow-inner">
-                <img src="https://picsum.photos/800/800?office" alt="Our Team" className="rounded-[2.8rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-black text-brand-navy mb-8 leading-tight">The <span className="text-brand-red">Problem</span> We Solved</h2>
-              <div className="prose prose-lg text-gray-600 space-y-6">
-                <p>
-                  For years, we watched local plumbers, roofers, and remodelers get taken advantage of by "marketing agencies" that sold vague promises and vanity metrics like "impressions" and "clicks."
-                </p>
-                <p>
-                  But you can't deposit impressions in the bank. You need <strong>booked jobs.</strong>
-                </p>
-                <p>
-                  We saw contractors missing half their calls because they were actually on the job site. We saw them losing easy sales because they didn't have enough reviews. We saw them paying for leads that were shared with five other competitors.
-                </p>
-                <p className="font-bold text-brand-navy text-2xl">
-                  We knew there was a better way.
-                </p>
-                <p>
-                  Local Boss Marketing was built to bridge the gap between high-level technology and the hard-working local pro. We don't just "do marketing"—we build revenue engines.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Core Values */}
       <section className="py-24 bg-brand-light">
         <div className="container mx-auto px-4">
@@ -1435,62 +1795,6 @@ export const AboutPage: React.FC = () => {
                 <p className="text-gray-600 group-hover:text-blue-100 leading-relaxed">{value.desc}</p>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Approach */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4">
-           <div className="bg-brand-navy rounded-[4rem] p-12 md:p-20 text-white relative">
-              <div className="absolute bottom-0 right-0 w-full h-full opacity-5 pointer-events-none">
-                 <Icons.Zap size={400} className="translate-x-1/2 translate-y-1/2 rotate-12" />
-              </div>
-              <div className="relative z-10 max-w-3xl">
-                 <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">How We <span className="text-brand-red">Actually</span> Work</h2>
-                 <div className="space-y-12">
-                    {[
-                      { 
-                        title: "Exclusive Territory", 
-                        desc: "We only work with ONE of each trade per service area. We don't play both sides. If we work with you, our only goal is to make you #1." 
-                      },
-                      { 
-                        title: "Hands-Off Automation", 
-                        desc: "Our systems are built so you can focus on the job. We handle the follow-ups, the reviews, and the optimization automatically." 
-                      },
-                      { 
-                        title: "Owner-To-Owner", 
-                        desc: "You won't be shuffled off to a junior account manager. You'll deal with experts who understand the stakes of running a small business." 
-                      }
-                    ].map((step, i) => (
-                      <div key={i} className="flex gap-8">
-                        <div className="shrink-0 w-12 h-12 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red font-black">
-                           {i + 1}
-                        </div>
-                        <div>
-                           <h4 className="text-2xl font-black mb-2">{step.title}</h4>
-                           <p className="text-blue-100/70 text-lg leading-relaxed">{step.desc}</p>
-                        </div>
-                      </div>
-                    ))}
-                 </div>
-                 <div className="mt-16">
-                    <Button size="lg" onClick={openBookDemo} className="bg-brand-red shadow-2xl">Audit My Current Strategy</Button>
-                 </div>
-              </div>
-           </div>
-        </div>
-      </section>
-
-      {/* Final Team CTA */}
-      <section className="py-24 bg-white text-center">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-brand-navy mb-8">Ready To Scale?</h2>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              We aren't just another agency. We are your outsourced growth department. Let's see if we're a fit for your territory.
-            </p>
-            <Button size="lg" onClick={openBookDemo}>Meet The Team & Discuss Your Goals</Button>
           </div>
         </div>
       </section>
@@ -1528,24 +1832,141 @@ export const BlogPage: React.FC = () => {
 
 // --- Contact Page ---
 export const ContactPage: React.FC = () => {
+  const contactDetails = [
+    {
+      icon: <Icons.Phone className="text-brand-red" size={24} />,
+      title: "Call Us",
+      value: "+1 (607) 235-1747",
+      href: "tel:+16072351747",
+      desc: "Mon-Fri, 9am - 6pm EST"
+    },
+    {
+      icon: <Icons.MessageCircle className="text-brand-red" size={24} />,
+      title: "Email Us",
+      value: "support@localbossmarketing.com",
+      href: "mailto:support@localbossmarketing.com",
+      desc: "We respond within 24 hours"
+    },
+    {
+      icon: <Icons.Map className="text-brand-red" size={24} />,
+      title: "Our Headquarters",
+      value: "Casper, WY",
+      href: "#",
+      desc: "312 W 2nd St #5196"
+    }
+  ];
+
   return (
-    <div className="pt-24 pb-20">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-16">
-           <div>
-              <h1 className="text-4xl font-bold text-brand-navy mb-6">Get In Touch</h1>
-              <p className="text-lg text-gray-600 mb-8">Ready to dominate your local market? Fill out the form or give us a call.</p>
-           </div>
-           <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-brand-navy mb-6">Send a Message</h3>
-              <form className="space-y-4">
-                 <input type="text" placeholder="Name" className="w-full px-4 py-3 bg-gray-50 border rounded-lg" />
-                 <input type="email" placeholder="Email Address" className="w-full px-4 py-3 bg-gray-50 border rounded-lg" />
-                 <Button type="submit" fullWidth size="lg">Send Message</Button>
-              </form>
-           </div>
+    <div className="pt-24">
+      {/* Hero Section */}
+      <section className="bg-brand-navy py-20 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 blur-[100px] rounded-full -mr-32 -mt-32"></div>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+            Let's Scale Your <span className="text-brand-red">Local Territory</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-xl text-gray-300">
+            Have a question? Ready to dominate your city? We're here to help local contractors win.
+          </p>
         </div>
-      </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-3 gap-8 -mt-32 relative z-20 mb-20">
+            {contactDetails.map((detail, i) => (
+              <a 
+                key={i} 
+                href={detail.href} 
+                className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="w-16 h-16 bg-brand-light rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                  {detail.icon}
+                </div>
+                <h3 className="text-xl font-bold text-brand-navy mb-2">{detail.title}</h3>
+                <p className="text-brand-red font-bold text-lg mb-2">{detail.value}</p>
+                <p className="text-gray-500 text-sm font-medium">{detail.desc}</p>
+              </a>
+            ))}
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            {/* Left Column: Form */}
+            <div>
+              <div className="mb-10">
+                <h2 className="text-3xl font-black text-brand-navy mb-4">Send Us a <span className="text-brand-red">Message</span></h2>
+                <p className="text-gray-600 font-medium">Tell us about your business and your growth goals. We'll get back to you with a custom strategy.</p>
+              </div>
+              
+              <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Message sent! We will contact you soon.'); }}>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                    <input required type="text" placeholder="John Doe" className="w-full px-5 py-4 bg-brand-light border-0 focus:ring-2 focus:ring-brand-red rounded-2xl font-medium transition-all" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
+                    <input required type="email" placeholder="john@example.com" className="w-full px-5 py-4 bg-brand-light border-0 focus:ring-2 focus:ring-brand-red rounded-2xl font-medium transition-all" />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-1">Phone Number</label>
+                    <input type="tel" placeholder="(555) 000-0000" className="w-full px-5 py-4 bg-brand-light border-0 focus:ring-2 focus:ring-brand-red rounded-2xl font-medium transition-all" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-1">Company Name</label>
+                    <input type="text" placeholder="Elite Roofing LLC" className="w-full px-5 py-4 bg-brand-light border-0 focus:ring-2 focus:ring-brand-red rounded-2xl font-medium transition-all" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-black uppercase tracking-widest text-gray-400 ml-1">How can we help?</label>
+                  <textarea rows={4} placeholder="Tell us about your project..." className="w-full px-5 py-4 bg-brand-light border-0 focus:ring-2 focus:ring-brand-red rounded-2xl font-medium transition-all resize-none"></textarea>
+                </div>
+
+                <Button type="submit" size="lg" fullWidth className="py-5 shadow-2xl">
+                  Request My Free Audit <Icons.ArrowRight size={20} className="ml-2" />
+                </Button>
+                
+                <p className="text-[10px] text-gray-400 text-center uppercase tracking-tighter font-bold">
+                  By clicking, you agree to our terms and privacy policy. We never spam.
+                </p>
+              </form>
+            </div>
+
+            {/* Right Column: Visual/Service Area */}
+            <div className="relative">
+              <div className="absolute -inset-10 bg-brand-light rounded-[4rem] -z-10 rotate-2"></div>
+              <Card className="p-10 bg-brand-navy border-0 rounded-[3rem] shadow-2xl relative overflow-hidden text-white">
+                <div className="absolute top-0 right-0 p-8 opacity-10">
+                  <Icons.Map size={200} />
+                </div>
+                
+                <h3 className="text-2xl font-black mb-8 relative z-10">Servicing Pros <span className="text-brand-gold text-3xl block">Across North America</span></h3>
+                
+                <ul className="space-y-6 relative z-10">
+                  {[
+                    "Exclusive territory protection (One pro per area)",
+                    "Direct access to your dedicated strategist",
+                    "Real-time ROI dashboard tracking every dollar",
+                    "Scalable systems for 1-man crews to 50+ fleets"
+                  ].map((item, i) => (
+                    <li key={i} className="flex gap-4 items-start">
+                      <div className="w-6 h-6 bg-brand-red rounded-full flex items-center justify-center shrink-0 mt-1">
+                        <Icons.Check size={14} className="text-white" />
+                      </div>
+                      <span className="text-blue-100 font-medium leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

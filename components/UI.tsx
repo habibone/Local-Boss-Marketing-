@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Phone, Calendar, MessageCircle, Mic, CheckCircle2, 
@@ -10,6 +11,32 @@ export const Icons = {
   Phone, Calendar, MessageCircle, Mic, Check: CheckCircle2,
   Chart: BarChart3, Map: MapPin, Hammer, ArrowRight, Menu, X,
   Shield: ShieldCheck, Layout: LayoutTemplate, Users, Bot, Zap, Star
+};
+
+// --- Badge Component ---
+interface BadgeProps {
+  children: React.ReactNode;
+  variant?: 'red' | 'gold' | 'navy' | 'white';
+  className?: string;
+}
+
+export const Badge: React.FC<BadgeProps> = ({ 
+  children, 
+  variant = 'red', 
+  className = '' 
+}) => {
+  const variants = {
+    red: "bg-brand-red/10 text-brand-red border-brand-red/20",
+    gold: "bg-brand-gold/10 text-brand-gold border-brand-gold/20",
+    navy: "bg-brand-navy/10 text-brand-navy border-brand-navy/20",
+    white: "bg-white/20 text-white border-white/30",
+  };
+
+  return (
+    <div className={`inline-flex items-center px-4 py-1.5 rounded-full border text-[10px] font-black uppercase tracking-widest ${variants[variant]} ${className}`}>
+      {children}
+    </div>
+  );
 };
 
 // --- Button Component ---
@@ -27,19 +54,19 @@ export const Button: React.FC<ButtonProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-bold transition-all duration-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95";
   
   const variants = {
-    primary: "bg-brand-red text-white hover:bg-red-700 focus:ring-red-500 shadow-md hover:shadow-lg",
-    secondary: "bg-brand-navy text-white hover:bg-blue-900 focus:ring-blue-700 shadow-md",
-    outline: "border-2 border-brand-navy text-brand-navy hover:bg-brand-navy/5",
+    primary: "bg-brand-red text-white hover:bg-red-700 focus:ring-red-500 shadow-lg hover:shadow-brand-red/20",
+    secondary: "bg-brand-navy text-white hover:bg-slate-800 focus:ring-blue-700 shadow-md",
+    outline: "border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white",
     ghost: "text-brand-navy hover:bg-gray-100",
   };
 
   const sizes = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-5 py-2.5 text-base",
-    lg: "px-8 py-3.5 text-lg",
+    sm: "px-4 py-2 text-sm",
+    md: "px-6 py-3 text-base",
+    lg: "px-10 py-4 text-lg",
   };
 
   const width = fullWidth ? "w-full" : "";
@@ -55,11 +82,10 @@ export const Button: React.FC<ButtonProps> = ({
 };
 
 // --- Card Component ---
-// Removed hardcoded bg-white to allow bg-brand-navy etc. via className
 export const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
   const hasBg = className.includes('bg-');
   return (
-    <div className={`${hasBg ? '' : 'bg-white'} rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 ${className}`}>
+    <div className={`${hasBg ? '' : 'bg-white'} rounded-3xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow duration-300 ${className}`}>
       {children}
     </div>
   );
@@ -67,17 +93,19 @@ export const Card: React.FC<{ children: React.ReactNode; className?: string }> =
 
 // --- Section Heading ---
 export const SectionHeading: React.FC<{ 
-  title: string; 
-  subtitle?: string; 
+  title: React.ReactNode; 
+  subtitle?: React.ReactNode; 
+  badge?: string;
   align?: 'left' | 'center';
   light?: boolean;
-}> = ({ title, subtitle, align = 'center', light = false }) => (
+}> = ({ title, subtitle, badge, align = 'center', light = false }) => (
   <div className={`mb-12 ${align === 'center' ? 'text-center' : 'text-left'}`}>
-    <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${light ? 'text-white' : 'text-brand-navy'}`}>
+    {badge && <Badge variant={light ? 'white' : 'red'} className="mb-4">{badge}</Badge>}
+    <h2 className={`text-3xl md:text-5xl font-black mb-6 leading-tight ${light ? 'text-white' : 'text-brand-navy'}`}>
       {title}
     </h2>
     {subtitle && (
-      <p className={`text-lg max-w-2xl ${align === 'center' ? 'mx-auto' : ''} ${light ? 'text-gray-300' : 'text-gray-600'}`}>
+      <p className={`text-lg md:text-xl max-w-2xl ${align === 'center' ? 'mx-auto' : ''} ${light ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
         {subtitle}
       </p>
     )}

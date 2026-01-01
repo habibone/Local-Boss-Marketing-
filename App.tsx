@@ -16,7 +16,8 @@ import {
   AutomationPage,
   ReputationPage,
   TermsPage,
-  PrivacyPage
+  PrivacyPage,
+  HowItWorksPage
 } from './pages/ContentPages.tsx';
 
 // ScrollToTop component to ensure pages start at the top on navigation
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           <Route path="website-and-lead-capture" element={<WebsitePage />} />
           <Route path="ai-automation" element={<AutomationPage />} />
           <Route path="reputation-management" element={<ReputationPage />} />
+          <Route path="how-it-works" element={<HowItWorksPage />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="industries" element={<IndustriesPage />} />
           <Route path="results" element={<ResultsPage />} />
