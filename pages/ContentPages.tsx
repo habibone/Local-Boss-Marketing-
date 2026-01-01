@@ -757,7 +757,7 @@ export const AutomationPage: React.FC = () => {
                      </div>
                      <div className="w-px h-6 bg-gray-200 mx-24"></div>
                      <div className="p-4 bg-green-500 rounded-2xl text-white text-xs font-bold border-l-4 border-white ml-24 max-w-[80%]">
-                        Customer: "YES! Unit is smoking." -> AI QUALIFIED AS URGENT
+                        Customer: "YES! Unit is smoking." → AI QUALIFIED AS URGENT
                      </div>
                   </div>
                   
