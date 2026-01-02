@@ -131,7 +131,7 @@ export const TermsPage: React.FC = () => {
 
           <h2 className="text-xl font-bold mt-8 mb-4">4. Delivery of Communications</h2>
           <p className="mb-4">
-            Please be aware that the delivery of messages, including SMS and email, is subject to the complexities and variabilities of networks and technologies across different carriers and regions. Despite our efforts to ensure reliable and timely delivery, issues such as network disruptions, compatibility differences among carriers, or technical malfunctions can occasionally prevent successful message transmission.
+            Please be aware that the anniversary of the delivery of messages, including SMS and email, is subject to the complexities and variabilities of networks and technologies across different carriers and regions. Despite our efforts to ensure reliable and timely delivery, issues such as network disruptions, compatibility differences among carriers, or technical malfunctions can occasionally prevent successful message transmission.
           </p>
           <p className="mb-6">
             By using our Service, you acknowledge these limitations and agree that we are not liable for any delays or failures in the delivery of messages that arise from factors beyond our control.
@@ -1741,33 +1741,190 @@ export const PricingPage: React.FC = () => {
 export const AboutPage: React.FC = () => {
   const { openBookDemo } = useModals();
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Habib Ur Rehman",
+    "image": "https://images.localbossmarketing.com/wp-content/uploads/2026/01/habib-6.png",
+    "jobTitle": "Founder & CEO",
+    "description": "SEO expert, Udemy instructor, and founder of Local Boss Marketing LLC with 15+ years of experience in Local SEO, lead generation, and marketing automation.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Local Boss Marketing LLC"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/habiburrehmanseo/",
+      "https://www.udemy.com/"
+    ],
+    "knowsAbout": [
+      "Local SEO",
+      "Lead Generation",
+      "Lead Management",
+      "Lead Nurturing",
+      "Search Engine Optimization",
+      "Marketing Automation"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "Pakistan"
+    }
+  };
+
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-24 pb-20 bg-white overflow-hidden">
+      {/* Structured Data for SEO */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
-      <section className="bg-brand-navy py-24 text-white relative overflow-hidden">
+      <section className="bg-brand-navy py-32 text-white relative">
         <div className="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
-          <Icons.Shield className="w-full h-full scale-150 rotate-12" />
+          <Icons.Shield className="w-full h-full scale-150 rotate-12 text-brand-gold" />
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-red/20 text-brand-red border border-brand-red/30 text-xs font-black uppercase tracking-widest mb-6">
-            Our Mission
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black mb-6 leading-tight max-w-5xl mx-auto">
-            Putting Local Pros Back In The <span className="text-brand-red">Driver's Seat</span>
+          <Badge variant="red" className="mb-8 px-6 py-2">The Mission & The Man Behind It</Badge>
+          <h1 className="text-4xl md:text-7xl font-black mb-8 leading-[1] tracking-tighter max-w-5xl mx-auto">
+            Putting Local Pros Back In The <br className="hidden md:block" />
+            <span className="text-brand-red italic underline decoration-brand-red/10 decoration-8 underline-offset-8">Driver's Seat</span>
           </h1>
-          <p className="max-w-3xl mx-auto text-xl text-gray-300 mb-10 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-xl text-blue-100/70 mb-12 leading-relaxed">
             Local Boss Marketing was founded with one goal: To give local contractors the same AI-powered growth engines used by billion-dollar franchises.
           </p>
-          <Button size="lg" onClick={openBookDemo} className="bg-brand-red">Join The LBM Movement</Button>
+          <div className="flex justify-center gap-6">
+            <Button size="lg" onClick={openBookDemo} className="bg-brand-red shadow-2xl">Start Your Growth Journey</Button>
+          </div>
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Founder Bio Section */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            {/* Image Column */}
+            <div className="lg:w-[40%] relative">
+               <div className="absolute -inset-6 bg-brand-light rounded-[4rem] -z-10 rotate-3"></div>
+               <div className="absolute -inset-6 bg-brand-navy/5 rounded-[4rem] -z-20 -rotate-3"></div>
+               <div className="bg-brand-navy p-2 rounded-[3.5rem] shadow-2xl overflow-hidden group">
+                  <img 
+                    src="https://images.localbossmarketing.com/wp-content/uploads/2026/01/habib-6.png" 
+                    alt="Habib Ur Rehman - Founder of Local Boss Marketing" 
+                    className="w-full h-auto rounded-[3rem] object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                  />
+                  <div className="absolute bottom-10 left-10 right-10 bg-white/90 backdrop-blur-md p-6 rounded-3xl border border-gray-100 shadow-xl">
+                    <h3 className="text-2xl font-black text-brand-navy mb-1 leading-none">Habib Ur Rehman</h3>
+                    <p className="text-brand-red text-xs font-black uppercase tracking-widest">Founder & CEO — Local Boss Marketing LLC</p>
+                  </div>
+               </div>
+            </div>
+
+            {/* Text Column */}
+            <div className="lg:w-[60%]">
+              <Badge variant="navy" className="mb-6">Meet the Founder</Badge>
+              <h2 className="text-3xl md:text-5xl font-black text-brand-navy mb-8 leading-tight tracking-tighter">
+                15+ Years of <br />
+                <span className="text-brand-red italic">Digital Dominance</span>
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed font-medium mb-8">
+                Habib Ur Rehman is a Pakistan-based SEO expert, digital marketing strategist, and educator with 15+ years of hands-on experience helping businesses grow through search, local visibility, and automated lead systems.
+              </p>
+              <p className="text-lg text-gray-500 leading-relaxed mb-10">
+                He is the Founder & CEO of Local Boss Marketing LLC, a results-focused digital marketing agency built specifically to help local service businesses in the United States generate consistent leads, manage inquiries, and convert prospects into paying customers. Habib specializes in Local SEO, lead generation, lead management, and automated lead nurturing, with a strong focus on practical systems that business owners can rely on—not marketing jargon or vanity metrics.
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center text-brand-navy shrink-0">
+                    <Icons.Shield size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-brand-navy text-sm uppercase mb-1">Expert Background</h4>
+                    <p className="text-xs text-gray-400 font-medium">Local SEO, Lead Tracking, CRM Integration, and High-Intent Conversion.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-light flex items-center justify-center text-brand-navy shrink-0">
+                    <Icons.Users size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-brand-navy text-sm uppercase mb-1">Industry Depth</h4>
+                    <p className="text-xs text-gray-400 font-medium">Service pros, medical, auto, real estate, and professional services.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Role Breakdown Grid */}
+      <section className="py-32 bg-brand-light">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="The Founder's Dual Focus" 
+            subtitle="Bridging the gap between cutting-edge SEO technology and world-class marketing education."
+          />
+          <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+             <Card className="p-12 border-0 shadow-xl rounded-[3rem] bg-white relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform">
+                  <Icons.Zap size={140} />
+                </div>
+                <Badge variant="red" className="mb-6">CEO & Strategist</Badge>
+                <h4 className="text-3xl font-black text-brand-navy mb-6">Local Boss Marketing LLC</h4>
+                <p className="text-gray-600 leading-relaxed font-medium mb-8">
+                   Habib leads the development of conversion-driven systems that turn websites into 24/7 lead-generating assets. His philosophy: <span className="text-brand-navy font-black italic">"A website should act like a salesperson, not just a brochure."</span>
+                </p>
+                <ul className="space-y-3">
+                  {["Google Maps Dominance", "AI Lead Recovery", "CRM Nurture Loops", "Reputation Walls"].map((item, i) => (
+                    <li key={i} className="flex gap-3 text-sm font-bold text-gray-500">
+                      <Icons.Check className="text-brand-red shrink-0" size={16} /> {item}
+                    </li>
+                  ))}
+                </ul>
+             </Card>
+
+             <Card className="p-12 border-0 shadow-xl rounded-[3rem] bg-brand-navy text-white relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform">
+                  <Icons.Shield size={140} className="text-brand-gold" />
+                </div>
+                <Badge variant="white" className="mb-6">Professional Instructor</Badge>
+                <h4 className="text-3xl font-black text-white mb-6 underline decoration-brand-gold decoration-4 underline-offset-8">Udemy SEO Educator</h4>
+                <p className="text-blue-100/70 leading-relaxed font-medium mb-8">
+                   Habib has trained over <span className="text-brand-gold font-black">3,000+ students worldwide</span>. His courses are renowned for being practical, implementation-focused, and easy for non-technical users to master.
+                </p>
+                <ul className="space-y-3">
+                  {["Real-World Client Experience", "Simplified Technical Concepts", "Implementation Focused", "Top-Rated Global Instructor"].map((item, i) => (
+                    <li key={i} className="flex gap-3 text-sm font-bold text-blue-100/40">
+                      <Icons.Check className="text-brand-gold shrink-0" size={16} /> {item}
+                    </li>
+                  ))}
+                </ul>
+             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Final Statement */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 text-center relative z-10">
+           <div className="max-w-4xl mx-auto">
+              <Badge variant="gold" className="mb-8">The Local Boss Mission</Badge>
+              <h2 className="text-4xl md:text-6xl font-black text-brand-navy mb-10 leading-[1.1] tracking-tighter">
+                To <span className="text-brand-red italic underline decoration-brand-red/10 decoration-8 underline-offset-8">Simplify</span> Growth For <br /> The Local Business Owner.
+              </h2>
+              <p className="text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
+                 Habib's work is focused on one outcome: Helping businesses get found, get contacted, and turn leads into long-term customers through systems that work consistently.
+              </p>
+           </div>
+        </div>
+      </section>
+
+      {/* Core Values (Legacy Section Updated) */}
       <section className="py-24 bg-brand-light">
         <div className="container mx-auto px-4">
           <SectionHeading 
-            title="Local Boss Marketing Values" 
-            subtitle="The principles that guide every decision we make for our clients." 
+            title="The LBM Core Values" 
+            subtitle="The principles that guide Habib and the entire team for every single client partner." 
           />
           <div className="grid md:grid-cols-3 gap-8">
             {[
